@@ -18,17 +18,12 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap">
     </noscript>
 
-    <!-- Optimized Google AdSense Load (Non-blocking / Delayed execution to free Main Thread) -->
-    <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          var sc = document.createElement('script');
-          sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656';
-          sc.async = true;
-          sc.crossOrigin = 'anonymous';
-          document.head.appendChild(sc);
-        }, 1500); // 1.5 seconds delay to prevent thread blocking during initial LCP/FCP rendering
-      });
+    <!-- Google AdSense Auto Ads Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656"
+         crossorigin="anonymous"></script>
+    <!-- Google AdSense AMP Auto Ads Script -->
+    <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
     <!-- Primary Meta Tags -->
     <title>Geo-Stamp Camera | كاميرا المهندسين للتوثيق الميداني وإحداثيات GPS</title>
@@ -81,6 +76,9 @@
     </script>
   </head>
   <body class="bg-slate-950 text-slate-50 font-cairo antialiased selection:bg-lime-500/30">
+    <amp-auto-ads type="adsense"
+            data-ad-client="ca-pub-5530138081652656">
+    </amp-auto-ads>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

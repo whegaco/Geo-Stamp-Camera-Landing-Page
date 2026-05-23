@@ -59,23 +59,44 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">
-              {language === 'ar' ? '3. مشاركة البيانات' : '3. Data Sharing'}
+              {language === 'ar' ? '3. ملفات تعريف الارتباط وإعلانات Google AdSense' : '3. Cookies and Google AdSense Advertising'}
             </h2>
+            <p className="mb-3">
+              {language === 'ar'
+                ? 'تستخدم جهات خارجية (بما في ذلك Google) ملفات تعريف الارتباط (Cookies) لعرض الإعلانات بناءً على زياراتك السابقة لهذا الموقع أو المواقع الأخرى على الإنترنت.'
+                : 'Third-party vendors, including Google, use cookies to serve ads based on our users\' prior visits to this website or other websites on the Internet.'}
+            </p>
+            <p className="mb-3">
+              {language === 'ar'
+                ? 'يُمكِّن استخدام ملفات تعريف الارتباط للإعلانات شركة Google وشركاءها من عرض الإعلانات للمستخدمين بناءً على زيارتهم لموقعنا و/أو مواقع أخرى عبر الإنترنت.'
+                : 'Google\'s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our site and/or other sites on the Internet.'}
+            </p>
             <p>
               {language === 'ar'
-                ? 'لا نشارك أي بيانات مع أطراف ثالثة لأننا ببساطة لا نجمعها. يتم التحكم في الصور والتقارير بواسطتك فقط، وأنت من يقرر مشاركتها عبر تطبيقات خارجية.'
-                : 'Since we do not collect any user data, we do not share any data with third parties. Your photos and reports are fully under your control, and it is up to you to share them via other apps.'}
+                ? 'يمكن للمستخدمين إلغاء الاشتراك في الإعلانات المخصصة عن طريق زيارة إعدادات إعلانات Google على الرابط: https://adssettings.google.com أو من خلال زيارة موقع www.aboutads.info لإلغاء استخدام ملفات الكوكيز لجهات خارجية.'
+                : 'Users may opt out of personalized advertising by visiting Google Ads Settings at: https://adssettings.google.com or by visiting www.aboutads.info to opt out of a third-party vendor\'s use of cookies for personalized advertising.'}
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">
-              {language === 'ar' ? '4. اتصل بنا' : '4. Contact Us'}
+              {language === 'ar' ? '4. مشاركة البيانات' : '4. Data Sharing'}
             </h2>
             <p>
               {language === 'ar'
-                ? 'إذا كان لديك أي أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر: kassema20@gmail.com'
-                : 'If you have any questions about this Privacy Policy, please contact us at: kassema20@gmail.com'}
+                ? 'لا نشارك أي بيانات يتم معالجتها من جهازك مع أطراف ثالثة لأننا ببساطة لا نجمعها محلياً ولا نرفعها على أي خادم. يتم التحكم في الصور والتقارير بواسطة المستخدم فقط، وأنت من يقرر مشاركتها عبر تطبيقات خارجية في أي وقت.'
+                : 'Since we do not collect or upload any user device data to external servers, we do not share any location coordinates or photographs with third parties. Your photos and report files are fully under your own control, and it is entirely up to you to share them via other apps.'}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'ar' ? '5. اتصل بنا' : '5. Contact Us'}
+            </h2>
+            <p>
+              {language === 'ar'
+                ? 'إذا كان لديك أي أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر البريد الإلكتروني المباشر: kassema20@gmail.com'
+                : 'If you have any questions about this Privacy Policy, please contact us directly via email at: kassema20@gmail.com'}
             </p>
           </section>
         </div>
