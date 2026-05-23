@@ -8,8 +8,12 @@ function formatDate(dateString) {
 }
 
 const articlesCode = fs.readFileSync('src/data/articles.ts', 'utf-8');
-const slugs = [...articlesCode.matchAll(/slug: '(.*?)'/g)].map(m => m[1]);
-const dates = [...articlesCode.matchAll(/dateEn: '(.*?)'/g)].map(m => m[1]);
+const slugs = [...articlesCode.matchAll(/slug:\s*['"`](.*?)['"`]/g)].map(m => m[1]);
+const dates = [...articlesCode.matchAll(/dateEn:\s*['"`](.*?)['"`]/g)].map(m => m[1]);
+
+if (slugs.length === 0) {
+  throw new Error('No article slugs found in src/data/articles.ts');
+}
 
 const articlePages = slugs.map((slug, i) => ({
   path: `/blog/${slug}`,

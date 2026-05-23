@@ -4,7 +4,7 @@
     <loc>https://geo-stamp-camera.vercel.app/</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1</priority>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/" />
@@ -13,14 +13,14 @@
     <loc>https://geo-stamp-camera.vercel.app/?lang=en</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1</priority>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/" />
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/privacy</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/privacy" />
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/privacy?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/privacy" />
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/terms</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/terms" />
@@ -47,7 +47,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/terms?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/terms" />
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/about</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/about" />
@@ -65,7 +65,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/about?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/about" />
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/contact</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/contact" />
@@ -83,7 +83,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/contact?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/contact" />
@@ -109,8 +109,44 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog" />
   </url>
   <url>
+    <loc>https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
+  </url>
+  <url>
+    <loc>https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
+  </url>
+  <url>
+    <loc>https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
+  </url>
+  <url>
+    <loc>https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
+  </url>
+  <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/digital-transformation-paper-to-pdf-reports</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/digital-transformation-paper-to-pdf-reports" />
@@ -119,7 +155,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/digital-transformation-paper-to-pdf-reports?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/digital-transformation-paper-to-pdf-reports" />
@@ -128,7 +164,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/5-essential-field-apps-civil-engineers-2026</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/5-essential-field-apps-civil-engineers-2026" />
@@ -137,7 +173,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/5-essential-field-apps-civil-engineers-2026?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/5-essential-field-apps-civil-engineers-2026" />
@@ -164,7 +200,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/importance-of-gps-metadata-in-construction</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/importance-of-gps-metadata-in-construction" />
@@ -173,7 +209,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/importance-of-gps-metadata-in-construction?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/importance-of-gps-metadata-in-construction" />
@@ -182,7 +218,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/how-to-standardize-daily-site-reports-dsr</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/how-to-standardize-daily-site-reports-dsr" />
@@ -191,7 +227,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/how-to-standardize-daily-site-reports-dsr?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/how-to-standardize-daily-site-reports-dsr" />
@@ -200,7 +236,7 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography" />
@@ -209,47 +245,11 @@
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography" />
     <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/protecting-copyright-authenticity-in-field-photography" />
-  </url>
-  <url>
-    <loc>https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
-  </url>
-  <url>
-    <loc>https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/benefits-of-cloud-storage-for-construction-photos" />
-  </url>
-  <url>
-    <loc>https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
-  </url>
-  <url>
-    <loc>https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/blog/drone-photography-vs-ground-stamping" />
   </url>
 </urlset>
