@@ -163,7 +163,7 @@ In fieldwork, you might need to prove a specific visit took place at a specific 
 Instead of sending scattered photos with insufficient details, Geo-Stamp Camera transforms pictures into structured documentation material. Every photo holds vital data, and they can be collected into a single PDF. This reduces errors, saves time, and helps present organized, easy-to-read information.
     
 **Conclusion**
-[Geo-Stamp Camera](/) is a practical tool combining the camera, location data, time, notes, and company branding with PDF report generation all in one place. Whether you're in construction, safety, maintenance, or real estate, it makes your field photos clearer, organized, and infinitely more useful. [Contact Us](/contact) to learn about our corporate plans, or check our [Privacy Policy](/privacy).`,
+[Geo-Stamp Camera](/) is a practical tool combining the camera, location data, time, notes, and company branding with PDF report generation all in one place. Whether you're in construction, safety, maintenance, or real estate, it makes your field photos clearer, organized, and infinitely more useful. [Contact Us](/contact) to learn about our corporate plans, or check our [Privacy Policy](/privacy). This platform was proudly [developed by Ali Kassem](https://ali-kassem-dev.vercel.app).`,
     contentAr: `في كثير من الأعمال الميدانية، لا تكفي الصورة وحدها لإثبات ما حدث. قد تحتاج إلى معرفة مكان التقاط الصورة، وقتها، تاريخها، والملاحظات المرتبطة بها. لذلك يأتي [تطبيق Geo-Stamp Camera](/) كحل عملي يساعدك على توثيق الصور بطريقة أوضح وأكثر تنظيمًا.
     
 التطبيق مناسب للأشخاص والشركات التي تعتمد على الصور في المتابعة اليومية، مثل مواقع الإنشاءات، التفتيش، السلامة، الصيانة، العقارات، التوصيل، وإدارة المشاريع. من خلاله يمكنك التقاط صورة تحتوي على بيانات مهمة مثل الموقع الجغرافي، التاريخ، الوقت، العنوان، الملاحظات، وبيانات العمل.
@@ -190,7 +190,7 @@ Instead of sending scattered photos with insufficient details, Geo-Stamp Camera 
 بدلًا من إرسال مجموعة صور منفصلة بدون تفاصيل كافية، يساعدك Geo-Stamp Camera على تحويل الصور إلى مادة توثيقية أوضح. كل صورة يمكن أن تحتوي على بيانات مهمة، ثم يمكن جمع الصور داخل تقرير PDF واحد. هذا يقلل الأخطاء، يوفر الوقت، ويساعد على تقديم معلومات مرتبة وسهلة القراءة.
     
 **الخلاصة**
-[Geo-Stamp Camera](/) هو تطبيق عملي يساعدك على توثيق الصور بالموقع والوقت والتاريخ والملاحظات، مع إمكانية إضافة بيانات العمل وإنشاء تقارير PDF جاهزة للمشاركة. سواء كنت تعمل في الإنشاءات، السلامة، التفتيش، أو الصيانة، يمكن للتطبيق أن يساعدك في جعل الصور أكثر وضوحًا وتنظيمًا وفائدة. [تواصل معنا للمزيد](/contact) أو اقرأ [سياسة الخصوصية](/privacy).`,
+[Geo-Stamp Camera](/) هو تطبيق عملي يساعدك على توثيق الصور بالموقع والوقت والتاريخ والملاحظات، مع إمكانية إضافة بيانات العمل وإنشاء تقارير PDF جاهزة للمشاركة. سواء كنت تعمل في الإنشاءات، السلامة، التفتيش، أو الصيانة، يمكن للتطبيق أن يساعدك في جعل الصور أكثر وضوحًا وتنظيمًا وفائدة. [تواصل معنا للمزيد](/contact) أو اقرأ [سياسة الخصوصية](/privacy). جرى تطوير هذه المنصة بكل فخر [بواسطة المطور علي قاسم](https://ali-kassem-dev.vercel.app).`,
     dateEn: 'May 23, 2026',
     dateAr: '٢٣ مايو ٢٠٢٦',
     authorEn: 'Editorial Team',

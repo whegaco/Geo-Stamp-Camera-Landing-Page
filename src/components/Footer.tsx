@@ -74,8 +74,20 @@ export default function Footer() {
           </Link>
         </div>
 
-        <p className="text-slate-600 text-sm">
+        <p className="text-slate-600 text-sm mb-2">
            &copy; {new Date().getFullYear()} Geo-Stamp Camera. {t('rights', 'footer')}
+        </p>
+        <p className="text-slate-500 text-xs">
+          {language === 'ar' ? 'تم التطوير بواسطة ' : 'Developed by '}
+          <a 
+            href="https://ali-kassem-dev.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-brand hover:underline font-bold"
+            title={language === 'ar' ? 'علي قاسم - مطور تطبيقات ومواقع' : 'Ali Kassem - Web and App Developer'}
+          >
+            {language === 'ar' ? 'علي قاسم' : 'Ali Kassem'}
+          </a>
         </p>
       </div>
     </footer>
