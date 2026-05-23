@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring } from 'motion/react';
 import { Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 import GeoStampLogo from './GeoStampLogo';
 import AppleIcon from './AppleIcon';
 
@@ -20,10 +21,15 @@ export default function Navbar() {
         <motion.div 
           initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-3"
         >
-          <GeoStampLogo className="w-10 h-10" />
-          <span className="text-2xl font-bold tracking-tight text-white">Geo-Stamp<span className="text-brand">.</span></span>
+          <Link 
+            to="/" 
+            className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+            title={language === 'ar' ? 'الرئيسية - Geo-Stamp Camera' : 'Home - Geo-Stamp Camera'}
+          >
+            <GeoStampLogo className="w-10 h-10" />
+            <span className="text-2xl font-bold tracking-tight text-white">Geo-Stamp<span className="text-brand">.</span></span>
+          </Link>
         </motion.div>
 
         <motion.div

@@ -39,6 +39,7 @@ export default function SEO({ title, description, url, image }: SEOProps) {
     <Helmet htmlAttributes={{ lang: language }}>
       <title>{title} | Geo-Stamp Camera</title>
       <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
       
       {/* Search Engine Optimization Links */}
       <link rel="canonical" href={canonicalUrl} />
@@ -46,18 +47,27 @@ export default function SEO({ title, description, url, image }: SEOProps) {
       <link rel="alternate" hrefLang="en" href={enAlternateUrl} />
       <link rel="alternate" hrefLang="x-default" href={arAlternateUrl} />
       
-      {/* Open Graph */}
+      {/* Open Graph / Facebook / WhatsApp */}
       <meta property="og:title" content={`${title} | Geo-Stamp Camera`} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={sharingImage} />
+      <meta property="og:image:secure_url" content={sharingImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:alt" content={`${title} - Geo-Stamp Camera`} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Geo-Stamp Camera" />
+      <meta property="og:locale" content={language === 'ar' ? 'ar_AR' : 'en_US'} />
+      <meta property="og:locale:alternate" content={language === 'ar' ? 'en_US' : 'ar_AR'} />
       
-      {/* Twitter */}
+      {/* Twitter / X */}
       <meta name="twitter:title" content={`${title} | Geo-Stamp Camera`} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={sharingImage} />
+      <meta name="twitter:image:alt" content={`${title} - Geo-Stamp Camera`} />
     </Helmet>
   );
 }
