@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://geostampcamera.com/sitemap.xml
+Sitemap: https://geo-stamp-camera.vercel.app/sitemap.xml

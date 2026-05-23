@@ -53,8 +53,8 @@ export default function ContactUs() {
             <p className="text-slate-400 mb-4 text-sm">
                {language === 'ar' ? 'تعرف أكثر على ميزاتنا والتحديثات الجديدة.' : 'Learn more about our features and new updates.'}
             </p>
-            <a href="https://geostampcamera.com" className="text-brand font-bold hover:underline">
-              geostampcamera.com
+            <a href="https://geo-stamp-camera.vercel.app" className="text-brand font-bold hover:underline">
+              geo-stamp-camera.vercel.app
             </a>
           </div>
 

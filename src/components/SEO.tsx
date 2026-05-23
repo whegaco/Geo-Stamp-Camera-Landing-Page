@@ -17,7 +17,7 @@ export default function SEO({ title, description, url }: SEOProps) {
       {/* Open Graph */}
       <meta property="og:title" content={`${title} | Geo-Stamp Camera`} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={`https://geostampcamera.com${url}`} />
+      <meta property="og:url" content={`https://geo-stamp-camera.vercel.app${url}`} />
       
       {/* Twitter */}
       <meta name="twitter:title" content={`${title} | Geo-Stamp Camera`} />
