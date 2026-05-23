@@ -14,23 +14,31 @@
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/privacy?lang=en"/>
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/terms</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/terms?lang=en"/>
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/about</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/about?lang=en"/>
   </url>
   <url>
     <loc>https://geo-stamp-camera.vercel.app/contact</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/contact?lang=en"/>
   </url>
 </urlset>
