@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cairo: "Cairo", sans-serif;
+  --color-brand: #C6FF00; /* Vibrant Lime from App */
+  --color-brand-hover: #b2e600;
+  --color-brand-dark: #1a1e0b; /* Dark contextual lime */
+  --color-slate-850: #141f33; /* Intermediate slate */
+}
+
+body {
+  font-family: var(--font-cairo);
+}
+
+/* Custom Scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6FF00; 
+}
+
+/* Hide scrollbar for internal app mockups */
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

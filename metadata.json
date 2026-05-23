@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Geo-Stamp Camera Landing Page 1",
+  "description": "Professional landing page for the Geo-Stamp Camera Android application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
