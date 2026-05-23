@@ -2,13 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense } from 'react';
 
-const Home = lazy(() => import('./pages/Home'));
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./pages/TermsOfService'));
-const AboutUs = lazy(() => import('./pages/AboutUs'));
-const ContactUs = lazy(() => import('./pages/ContactUs'));
-const Blog = lazy(() => import('./pages/Blog'));
-const Article = lazy(() => import('./pages/Article'));
+const Home = lazy(() => import('./pages/home'));
+const PrivacyPolicy = lazy(() => import('./pages/privacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/termsOfService'));
+const AboutUs = lazy(() => import('./pages/aboutUs'));
+const ContactUs = lazy(() => import('./pages/contactUs'));
+const Blog = lazy(() => import('./pages/blog'));
+const Article = lazy(() => import('./pages/article'));
 
 export default function App() {
   return (
