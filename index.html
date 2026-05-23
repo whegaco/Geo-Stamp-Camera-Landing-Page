@@ -122,6 +122,41 @@
       }
     }
     </script>
+    <!-- Local Business Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Geo-Stamp Camera",
+      "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop",
+      "url": "https://geo-stamp-camera.vercel.app/",
+      "telephone": "+971501234567",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sheikh Zayed Road",
+        "addressLocality": "Dubai",
+        "postalCode": "00000",
+        "addressCountry": "AE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.2048,
+        "longitude": 55.2708
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
     <style>
       .sr-only-seo {
         position: absolute;
@@ -224,6 +259,21 @@
         <p>لا تدع التقنيات الحديثة تفوتك، انضم الآن إلى نخبة المهندسين الذين حولوا إدارة التوثيق الميداني من عبء ثقيل إلى ميزة تنافسية لشركاتهم ومشاريعهم من خلال تحميل التطبيق والاعتماد عليه في روتينهم اليومي لزيارة المواقع.</p>
       </article>
 
+      <address itemscope itemtype="http://schema.org/LocalBusiness">
+        <strong itemprop="name">Geo-Stamp Camera</strong><br>
+        Address: <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">Sheikh Zayed Road</span>, 
+          <span itemprop="addressLocality">Dubai</span>, 
+          <span itemprop="addressCountry">AE</span>
+        </span><br>
+        Phone: <span itemprop="telephone">+971501234567</span><br>
+        Website: <a href="https://geo-stamp-camera.vercel.app/" itemprop="url">geo-stamp-camera.vercel.app</a><br>
+        Working Hours: <time itemprop="openingHours" datetime="Mo-Fr 09:00-18:00">Monday - Friday 09:00 - 18:00</time>
+        <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+          <meta itemprop="latitude" content="25.2048" />
+          <meta itemprop="longitude" content="55.2708" />
+        </span>
+      </address>
       <footer>
         <p>جميع الحقوق محفوظة لصالح تطبيق Geo-Stamp Camera لتوثيق مشاريع الهندسة والمقاولات. صمم خصيصًا لتسهيل عمل فرق الإشراف الهندسي وإدارة المشاريع.</p>
       </footer>
