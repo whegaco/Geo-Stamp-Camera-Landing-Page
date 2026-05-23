@@ -59,20 +59,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className={`mt-6 flex justify-center ${language === 'en' ? 'lg:justify-start' : 'lg:justify-start'}`}
-          >
-             <a 
-               href="mailto:hello@geostampcamera.com?subject=iOS%20Waitlist"
-               className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors p-2 -ml-2 rounded-lg hover:bg-slate-800/50"
-             >
-               <AppleIcon className="w-5 h-5" />
-               <span className="text-sm font-medium underline decoration-slate-700 underline-offset-4">{t('btn_app_store', 'hero')}</span>
-             </a>
-          </motion.div>
+
         </motion.div>
 
         {/* Hero Interactive UI Mockup */}

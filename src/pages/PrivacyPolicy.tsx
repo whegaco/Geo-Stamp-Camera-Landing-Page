@@ -74,8 +74,8 @@ export default function PrivacyPolicy() {
             </h2>
             <p>
               {language === 'ar'
-                ? 'إذا كان لديك أي أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر: hello@geostampcamera.com'
-                : 'If you have any questions about this Privacy Policy, please contact us at: hello@geostampcamera.com'}
+                ? 'إذا كان لديك أي أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر: kassema20@gmail.com'
+                : 'If you have any questions about this Privacy Policy, please contact us at: kassema20@gmail.com'}
             </p>
           </section>
         </div>

@@ -25,13 +25,7 @@ export default function Footer() {
             >
               {t('btn', 'footer')}
             </a>
-            <a 
-              href="mailto:hello@geostampcamera.com?subject=iOS%20Waitlist"
-              className="px-6 py-3 bg-slate-900/50 hover:bg-slate-800 border border-slate-800/50 rounded-xl text-slate-300 font-bold transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-            >
-              <AppleIcon className="w-5 h-5" />
-              {t('btn_app_store', 'footer')}
-            </a>
+
         </div>
         
         {/* Added Links */}

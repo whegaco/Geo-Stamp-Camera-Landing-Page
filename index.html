@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="xLp1wAPPcNT31bOaUbYjEhU6KeZzOnyH_nuYtmVWj54" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656"
-     crossorigin="anonymous"></script>
+
+    <!-- Preconnect to external origins early -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+    <!-- Non-blocking Google Fonts loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap">
+    </noscript>
+
+    <!-- Optimized Google AdSense Load (Non-blocking / Delayed execution to free Main Thread) -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var sc = document.createElement('script');
+          sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656';
+          sc.async = true;
+          sc.crossOrigin = 'anonymous';
+          document.head.appendChild(sc);
+        }, 1500); // 1.5 seconds delay to prevent thread blocking during initial LCP/FCP rendering
+      });
+    </script>
     <!-- Primary Meta Tags -->
     <title>Geo-Stamp Camera | كاميرا المهندسين للتوثيق الميداني وإحداثيات GPS</title>
     <meta name="title" content="Geo-Stamp Camera | كاميرا المهندسين للتوثيق الميداني وإحداثيات GPS" />
@@ -18,11 +42,6 @@
     <link rel="alternate" hreflang="ar" href="https://geo-stamp-camera.vercel.app/" />
     <link rel="alternate" hreflang="en" href="https://geo-stamp-camera.vercel.app/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://geo-stamp-camera.vercel.app/" />
-
-    <!-- Performance Hints -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -60,11 +79,6 @@
       }
     }
     </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-slate-950 text-slate-50 font-cairo antialiased selection:bg-lime-500/30">
     <div id="root"></div>

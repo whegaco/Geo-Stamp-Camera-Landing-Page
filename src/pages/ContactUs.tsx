@@ -26,7 +26,7 @@ export default function ContactUs() {
             : 'We are here to help you and answer any questions regarding the Geo-Stamp Camera app.'}
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand/50 transition-colors">
             <div className="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center text-brand mb-4">
@@ -38,8 +38,8 @@ export default function ContactUs() {
             <p className="text-slate-400 mb-4 text-sm">
               {language === 'ar' ? 'للأسئلة العامة، الدعم الفني، وطلبات الأعمال.' : 'For general inquiries, technical support, and business requests.'}
             </p>
-            <a href="mailto:hello@geostampcamera.com" className="text-brand font-bold hover:underline">
-              hello@geostampcamera.com
+            <a href="mailto:kassema20@gmail.com" className="text-brand font-bold hover:underline">
+              kassema20@gmail.com
             </a>
           </div>
 
@@ -60,7 +60,7 @@ export default function ContactUs() {
 
         </div>
 
-        <div className="mt-16 bg-slate-900 p-8 rounded-2xl border border-slate-800 text-center">
+        <div className="mt-12 bg-slate-900 p-8 rounded-2xl border border-slate-800 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
              {language === 'ar' ? 'ملاحظات المستخدمين' : 'User Feedback'}
           </h2>

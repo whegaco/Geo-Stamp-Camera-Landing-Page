@@ -40,14 +40,7 @@ export default function Navbar() {
             <span className="font-bold text-sm tracking-wide">{language === 'ar' ? 'EN' : 'عربي'}</span>
           </button>
           
-          <a
-            href="mailto:hello@geostampcamera.com?subject=iOS%20Waitlist"
-            className="hidden sm:flex items-center gap-2 bg-slate-800 text-slate-200 px-5 py-2.5 rounded-full font-bold hover:bg-slate-700 transition-colors border border-slate-700 text-sm"
-          >
-            <AppleIcon className="w-4 h-4" />
-            {t('app_store', 'nav')}
-          </a>
-          
+
           <a
             href="https://play.google.com/store/apps/details?id=com.ali.geostamp"
             target="_blank"

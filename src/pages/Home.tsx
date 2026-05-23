@@ -21,8 +21,10 @@ export default function Home() {
       <ParticlesBackground />
       <Navbar />
       <Hero />
+      
       <Features />
       <Showcase />
+
       <Testimonials />
       <FAQ />
       <Footer />
