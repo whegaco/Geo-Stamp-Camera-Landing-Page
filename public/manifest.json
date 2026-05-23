@@ -1,0 +1,17 @@
+{
+  "name": "Geo-Stamp Camera",
+  "short_name": "Geo-Stamp",
+  "description": "تطبيق كاميرا المهندسين لتوثيق المشاريع باللوكيشن والصور وختم الإحداثيات والوقت.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#84cc16",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

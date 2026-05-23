@@ -13,16 +13,17 @@ const getSocialImageForPath = (path: string): string => {
   const cleanPath = path.split('?')[0];
   switch (cleanPath) {
     case '/about':
-      return 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop';
+      return 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop'; // Technical/Building
     case '/contact':
-      return 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop';
+      return 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop'; // Contact/Network
     case '/privacy':
-      return 'https://images.unsplash.com/photo-1508847154043-be12a3bab46a?q=80&w=1200&auto=format&fit=crop';
     case '/terms':
-      return 'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop';
+      return 'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop'; // Documents/Law
+    case '/blog':
+      return 'https://images.unsplash.com/photo-1508847154043-be12a3bab46a?q=80&w=1200&auto=format&fit=crop'; // Planning/Blueprint
     case '/':
     default:
-      return 'https://images.unsplash.com/photo-1504307651254-35680f356f58?q=80&w=1200&auto=format&fit=crop';
+      return 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop'; // Construction Architecture
   }
 };
 
@@ -38,7 +39,15 @@ export default function SEO({ title, description, url, image, keywords }: SEOPro
   const arAlternateUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}`;
   const enAlternateUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}?lang=en`;
   
-  const sharingImage = image || getSocialImageForPath(url);
+  let sharingImage = image || getSocialImageForPath(url);
+  
+  // if image is from unsplash, upgrade resolution for social sharing
+  if (sharingImage.includes('unsplash.com')) {
+    sharingImage = sharingImage.replace(/w=\d+/, 'w=1200').replace(/h=\d+/, 'h=630');
+    if (!sharingImage.includes('h=630')) {
+        sharingImage += '&h=630';
+    }
+  }
 
   return (
     <Helmet htmlAttributes={{ lang: language }}>
