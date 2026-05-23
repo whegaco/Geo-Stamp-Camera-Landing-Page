@@ -12,6 +12,7 @@ export default function AboutUs() {
       <SEO 
         title={language === 'ar' ? 'من نحن' : 'About Us'}
         description={language === 'ar' ? 'تعرف على قصة تطبيق Geo-Stamp Camera والأداة الرائدة للمهندسين المدنيين والمقاولين.' : 'Learn about the story of Geo-Stamp Camera, the leading tool for civil engineers and contractors.'}
+        keywords={language === 'ar' ? 'من نحن, عن التطبيق, تطبيق كاميرا المهندسين, Geo-Stamp Camera, فريق العمل, تطوير التطبيقات الهندسية' : 'About Us, About Geo-Stamp Camera, engineers camera app, development team, engineering applications'}
         url="/about"
       />
       <Navbar />

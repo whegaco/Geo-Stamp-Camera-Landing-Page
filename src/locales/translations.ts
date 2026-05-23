@@ -6,7 +6,8 @@ export const translations = {
     },
     nav: {
       download: "حمل التطبيق",
-      app_store: "متوفر على App Store (سجل اهتمامك)"
+      app_store: "متوفر على App Store (سجل اهتمامك)",
+      blog: "المقالات"
     },
     hero: {
       badge: "التطبيق الأول للمهندسين والمقاولين",
@@ -85,7 +86,8 @@ export const translations = {
       link_privacy: "سياسة الخصوصية",
       link_terms: "شروط الخدمة",
       link_contact: "اتصل بنا",
-      link_about: "من نحن"
+      link_about: "من نحن",
+      link_blog: "المقالات"
     }
   },
   en: {
@@ -95,7 +97,8 @@ export const translations = {
     },
     nav: {
       download: "Download App",
-      app_store: "Available on App Store (Waitlist)"
+      app_store: "Available on App Store (Waitlist)",
+      blog: "Blog"
     },
     hero: {
       badge: "The Premier App for Engineers & Contractors",
@@ -174,7 +177,8 @@ export const translations = {
       link_privacy: "Privacy Policy",
       link_terms: "Terms of Service",
       link_contact: "Contact Us",
-      link_about: "About Us"
+      link_about: "About Us",
+      link_blog: "Blog"
     }
   }
 };

@@ -37,6 +37,12 @@ export default function Navbar() {
            animate={{ opacity: 1, x: 0 }}
            className="flex items-center gap-4"
         >
+          <Link 
+            to="/blog"
+            className="flex items-center text-slate-300 hover:text-white transition-colors px-2 py-2.5 font-bold text-sm sm:text-base"
+          >
+            {t('blog', 'nav')}
+          </Link>
           <button 
             onClick={toggleLanguage}
             className="flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-all px-3 py-2.5 rounded-lg hover:bg-slate-800 min-h-[44px] min-w-[44px]"

@@ -11,6 +11,7 @@ export default function PrivacyPolicy() {
       <SEO 
         title={language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
         description={language === 'ar' ? 'سياسة الخصوصية وتفاصيل جمع البيانات لتطبيق Geo-Stamp Camera.' : 'Privacy Policy and data collection details for Geo-Stamp Camera.'}
+        keywords={language === 'ar' ? 'سياسة الخصوصية, حفظ البيانات, خصوصية المستخدم, Geo-Stamp Camera, جمع البيانات, ملفات كوكيز' : 'Privacy Policy, data collection, user privacy, Geo-Stamp Camera, cookies policy, GDPR'}
         url="/privacy"
       />
       <Navbar />

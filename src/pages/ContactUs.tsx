@@ -12,6 +12,7 @@ export default function ContactUs() {
       <SEO 
         title={language === 'ar' ? 'اتصل بنا' : 'Contact Us'}
         description={language === 'ar' ? 'تواصل معنا لأي أسئلة واستفسارات أو مساعدة بخصوص تطبيق Geo-Stamp Camera.' : 'Contact us for any questions, inquiries, or support regarding the Geo-Stamp Camera app.'}
+        keywords={language === 'ar' ? 'اتصل بنا, دعم فني, تواصل, مساعدة تطبيق Geo-Stamp, أسئلة واستفسارات, خدمة عملاء' : 'Contact Us, technical support, get in touch, Geo-Stamp help, feedback, customer service'}
         url="/contact"
       />
       <Navbar />

@@ -35,3 +35,35 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Markdown Prose Styles */
+.custom-prose p {
+  margin-bottom: 1.5em;
+}
+.custom-prose h2, .custom-prose h3, .custom-prose h4 {
+  font-weight: 700;
+  color: #fff;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+.custom-prose h2 {
+  font-size: 1.5em;
+}
+.custom-prose h3 {
+  font-size: 1.25em;
+}
+.custom-prose strong {
+  font-weight: 700;
+  color: #fff;
+}
+.custom-prose ul {
+  list-style-type: disc;
+  padding-inline-start: 1.5em;
+  margin-bottom: 1.5em;
+}
+.custom-prose li {
+  margin-bottom: 0.5em;
+}
+.custom-prose li::marker {
+  color: var(--color-brand);
+}

@@ -1,13 +1,15 @@
+import { lazy, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Features from '../components/Features';
-import Showcase from '../components/Showcase';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
-import Footer from '../components/Footer';
 import ParticlesBackground from '../components/ParticlesBackground';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+
+const Features = lazy(() => import('../components/Features'));
+const Showcase = lazy(() => import('../components/Showcase'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const FAQ = lazy(() => import('../components/FAQ'));
+const Footer = lazy(() => import('../components/Footer'));
 
 export default function Home() {
   const { language } = useLanguage();
@@ -16,18 +18,20 @@ export default function Home() {
       <SEO 
         title={language === 'ar' ? 'الرئيسية' : 'Home'}
         description={language === 'ar' ? 'التطبيق الأمثل للمهندسين والمقاولين لتوثيق الأعمال الميدانية بصور مختومة ببيانات المشروع.' : 'The optimal app for engineers and contractors to document field work with project data-stamped photos.'}
+        keywords={language === 'ar' ? 'Geo-Stamp Camera, كاميرا جي بي إس, توثيق هندسي, مقاولات, صور احداثيات, كاميرا المهندسين, GPS Camera' : 'Geo-Stamp Camera, GPS Camera, engineering documentation, contractors, coordinates photos, engineers camera'}
         url="/"
       />
       <ParticlesBackground />
       <Navbar />
       <Hero />
       
-      <Features />
-      <Showcase />
-
-      <Testimonials />
-      <FAQ />
-      <Footer />
+      <Suspense fallback={<div className="h-40 flex items-center justify-center"><div className="w-8 h-8 rounded-full border-4 border-slate-800 border-t-brand animate-spin"></div></div>}>
+        <Features />
+        <Showcase />
+        <Testimonials />
+        <FAQ />
+        <Footer />
+      </Suspense>
     </main>
   );
 }

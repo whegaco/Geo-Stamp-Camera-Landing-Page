@@ -11,6 +11,7 @@ export default function TermsOfService() {
       <SEO 
         title={language === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}
         description={language === 'ar' ? 'شروط الخدمة وأحكام الاستخدام لتطبيق Geo-Stamp Camera.' : 'Terms of Service and conditions of use for Geo-Stamp Camera.'}
+        keywords={language === 'ar' ? 'شروط الخدمة, اتفاقية المستخدم, أحكام الاستخدام, تطبيق Geo-Stamp Camera' : 'Terms of Service, user agreement, terms of use, Geo-Stamp Camera app'}
         url="/terms"
       />
       <Navbar />

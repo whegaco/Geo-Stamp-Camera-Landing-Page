@@ -38,6 +38,13 @@ export default function Footer() {
         {/* Added Links */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-sm font-medium">
           <Link 
+            to="/blog" 
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
+            title={language === 'ar' ? 'المقالات - مدونة Geo-Stamp Camera' : 'Blog - Geo-Stamp Camera Articles'}
+          >
+            {t('link_blog', 'footer')}
+          </Link>
+          <Link 
             to="/privacy" 
             className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'سياسة الخصوصية وملفات الكوكيز لـ Geo-Stamp' : 'Privacy Policy and Cookie disclaimer'}

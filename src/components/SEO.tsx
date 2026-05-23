@@ -6,6 +6,7 @@ interface SEOProps {
   description: string;
   url: string;
   image?: string;
+  keywords?: string;
 }
 
 const getSocialImageForPath = (path: string): string => {
@@ -25,9 +26,13 @@ const getSocialImageForPath = (path: string): string => {
   }
 };
 
-export default function SEO({ title, description, url, image }: SEOProps) {
+export default function SEO({ title, description, url, image, keywords }: SEOProps) {
   const { language } = useLanguage();
   
+  const defaultKeywordsAr = 'كاميرا, هندسة مدنية, مساحة, توثيق ميداني, جي بي إس, احداثيات, مقاولات, مشاريع, موقع عمل, تصوير هندسي, تطبيق كاميرا';
+  const defaultKeywordsEn = 'camera, civil engineering, surveying, field documentation, gps, coordinates, construction, projects, worksite, engineering photography, camera app, geo stamp';
+  const finalKeywords = keywords || (language === 'ar' ? defaultKeywordsAr : defaultKeywordsEn);
+
   const cleanUrl = url === '/' ? '' : url;
   const canonicalUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}`;
   const arAlternateUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}`;
@@ -39,6 +44,7 @@ export default function SEO({ title, description, url, image }: SEOProps) {
     <Helmet htmlAttributes={{ lang: language }}>
       <title>{title} | Geo-Stamp Camera</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={finalKeywords} />
       <meta name="robots" content="index, follow" />
       
       {/* Search Engine Optimization Links */}
