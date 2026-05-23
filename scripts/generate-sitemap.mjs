@@ -8,6 +8,8 @@ function formatDate(dateString) {
 }
 
 const articlesCode = fs.readFileSync('src/data/articles.ts', 'utf-8');
+const articlesStat = fs.statSync('src/data/articles.ts');
+const articlesLastMod = articlesStat.mtime.toISOString().split('T')[0];
 const slugs = [...articlesCode.matchAll(/slug:\s*['"`](.*?)['"`]/g)].map(m => m[1]);
 const dates = [...articlesCode.matchAll(/dateEn:\s*['"`](.*?)['"`]/g)].map(m => m[1]);
 
@@ -19,7 +21,7 @@ const articlePages = slugs.map((slug, i) => ({
   path: `/blog/${slug.toLowerCase()}`,
   priority: 0.7,
   changefreq: 'monthly',
-  lastmod: formatDate(dates[i])
+  lastmod: articlesLastMod
 }));
 
 const pages = [
