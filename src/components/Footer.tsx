@@ -36,31 +36,31 @@ export default function Footer() {
         </div>
         
         {/* Added Links */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8 text-sm font-medium text-slate-400">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-sm font-medium">
           <Link 
             to="/privacy" 
-            className="hover:text-brand transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'سياسة الخصوصية وملفات الكوكيز لـ Geo-Stamp' : 'Privacy Policy and Cookie disclaimer'}
           >
             {t('link_privacy', 'footer')}
           </Link>
           <Link 
             to="/terms" 
-            className="hover:text-brand transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'شروط الخدمة والاتفاقية القانونية للمهندسين والمقاولين' : 'Terms of Service & user policy for engineers'}
           >
             {t('link_terms', 'footer')}
           </Link>
           <Link 
             to="/about" 
-            className="hover:text-brand transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'من نحن - قصة وأهداف تطبيق كاميرا المهندسين' : 'About Us - story of Geo-Stamp Camera'}
           >
             {t('link_about', 'footer')}
           </Link>
           <Link 
             to="/contact" 
-            className="hover:text-brand transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'اتصل بنا - قنوات الدعم ومراجعة مستندات المشاريع' : 'Contact Us - engineering customer support form'}
           >
             {t('link_contact', 'footer')}

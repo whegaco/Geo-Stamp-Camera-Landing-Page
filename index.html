@@ -18,12 +18,54 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap">
     </noscript>
 
-    <!-- Google AdSense Auto Ads Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656"
-         crossorigin="anonymous"></script>
-    <!-- Google AdSense AMP Auto Ads Script -->
-    <script async custom-element="amp-auto-ads"
-            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    <!-- Smart Performance-Optimized Google AdSense & AMP Loading (Zero block for PageSpeed 100/100 score) -->
+    <script>
+      (function() {
+        var adsenseLoaded = false;
+        function loadAdSense() {
+          if (adsenseLoaded) return;
+          adsenseLoaded = true;
+          
+          // Clean up interaction event listeners immediately
+          window.removeEventListener('scroll', loadAdSense);
+          window.removeEventListener('mousemove', loadAdSense);
+          window.removeEventListener('touchstart', loadAdSense);
+          
+          // Create standard AdSense script
+          var sc = document.createElement('script');
+          sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530138081652656';
+          sc.async = true;
+          sc.crossOrigin = 'anonymous';
+          document.head.appendChild(sc);
+          
+          // Create AMP Auto Ads script
+          var ampSc = document.createElement('script');
+          ampSc.src = 'https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js';
+          ampSc.async = true;
+          ampSc.setAttribute('custom-element', 'amp-auto-ads');
+          document.head.appendChild(ampSc);
+          
+          // Dynamically prepend amp-auto-ads tag to body once available
+          var ampTag = document.createElement('amp-auto-ads');
+          ampTag.setAttribute('type', 'adsense');
+          ampTag.setAttribute('data-ad-client', 'ca-pub-5530138081652656');
+          document.body.insertBefore(ampTag, document.body.firstChild);
+        }
+        
+        // Trigger on idle (2.5 seconds delay) to allow LCP/FCP priority threads
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(function() {
+            setTimeout(loadAdSense, 2500);
+          });
+        } else {
+          setTimeout(loadAdSense, 2500);
+        }
+        
+        // Trigger immediately on physical user engagements
+        window.addEventListener('scroll', loadAdSense, { passive: true });
+        window.addEventListener('mousemove', loadAdSense, { passive: true });
+        window.addEventListener('touchstart', loadAdSense, { passive: true });
+      })();
     </script>
     <!-- Primary Meta Tags -->
     <title>Geo-Stamp Camera | كاميرا المهندسين للتوثيق الميداني وإحداثيات GPS</title>
@@ -76,9 +118,6 @@
     </script>
   </head>
   <body class="bg-slate-950 text-slate-50 font-cairo antialiased selection:bg-lime-500/30">
-    <amp-auto-ads type="adsense"
-            data-ad-client="ca-pub-5530138081652656">
-    </amp-auto-ads>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

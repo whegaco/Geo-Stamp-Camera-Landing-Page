@@ -39,7 +39,7 @@ export default function Navbar() {
         >
           <button 
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800"
+            className="flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-all px-3 py-2.5 rounded-lg hover:bg-slate-800 min-h-[44px] min-w-[44px]"
             aria-label="Toggle language"
           >
             <Globe className="w-5 h-5" />
