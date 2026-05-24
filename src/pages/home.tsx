@@ -9,6 +9,7 @@ const Features = lazy(() => import('../components/Features'));
 const Showcase = lazy(() => import('../components/Showcase'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
 const FAQ = lazy(() => import('../components/FAQ'));
+const SEOArticle = lazy(() => import('../components/SEOArticle'));
 const Footer = lazy(() => import('../components/Footer'));
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
         <Showcase />
         <Testimonials />
         <FAQ />
+        <SEOArticle />
         <Footer />
       </Suspense>
     </main>
