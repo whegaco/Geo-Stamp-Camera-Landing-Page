@@ -35,7 +35,9 @@ export default function SEO({ title, description, url, image, keywords }: SEOPro
   const finalKeywords = keywords || (language === 'ar' ? defaultKeywordsAr : defaultKeywordsEn);
 
   const cleanUrl = url === '/' ? '' : url;
-  const canonicalUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}`;
+  const canonicalUrl = language === 'en' 
+    ? `https://geo-stamp-camera.vercel.app${cleanUrl}?lang=en`
+    : `https://geo-stamp-camera.vercel.app${cleanUrl}`;
   const arAlternateUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}`;
   const enAlternateUrl = `https://geo-stamp-camera.vercel.app${cleanUrl}?lang=en`;
   
