@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
@@ -15,7 +15,29 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/:path((?!sitemap\\.xml|robots\\.txt|favicon\\.svg|manifest\\.json|.*\\..+).*)",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/:path/index.html"
+    },
+    {
+      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.svg|manifest\\.json|.*\\..+).*)$",
       "destination": "/index.html"
     }
   ]
