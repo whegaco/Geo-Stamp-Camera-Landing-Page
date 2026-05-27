@@ -20,6 +20,9 @@ export const trackEvent = async (eventName: string, eventData: Record<string, an
 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: 'select_account'
+});
 
 export const logInWithGoogle = () => signInWithPopup(auth, googleProvider);
 export const logOut = () => signOut(auth);
