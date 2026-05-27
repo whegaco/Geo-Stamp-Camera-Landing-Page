@@ -27,6 +27,7 @@ const Admin = lazy(() => import('./pages/admin/Admin'));
 const AdminArticles = lazy(() => import('./pages/admin/AdminArticles'));
 const AdminArticleEdit = lazy(() => import('./pages/admin/AdminArticleEdit'));
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
+const AdminLogs = lazy(() => import('./pages/admin/AdminLogs'));
 
 export default function App() {
   return (
@@ -51,6 +52,7 @@ export default function App() {
               <Route path="/admin/articles/new" element={<AdminArticleEdit />} />
               <Route path="/admin/articles/:id" element={<AdminArticleEdit />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
+              <Route path="/admin/logs" element={<AdminLogs />} />
               
               <Route path="*" element={<Home />} />
             </Routes>

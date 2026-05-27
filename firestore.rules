@@ -36,7 +36,18 @@ service cloud.firestore {
         data.timestamp is number;
     }
 
+    function isValidErrorLog(data) {
+      return data.keys().hasAll(['error', 'timestamp']) &&
+        data.error is string &&
+        data.timestamp is number;
+    }
+
     // Collections Operations
+    match /error_logs/{logId} {
+      allow create: if isValidErrorLog(incoming());
+      allow read, update, delete: if isAdmin();
+    }
+    
     match /events/{eventId} {
       allow create: if isValidEvent(incoming());
       allow read, update, delete: if isAdmin();

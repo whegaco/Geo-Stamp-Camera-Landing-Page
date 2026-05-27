@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Navigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { LayoutDashboard, FileText, Settings, LogOut, Loader2 } from 'lucide-react';
+import { LayoutDashboard, FileText, Settings, LogOut, Loader2, AlertCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 
@@ -54,9 +54,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   const navigation = [
-    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard, exact: true },
     { name: 'Articles', href: '/admin/articles', icon: FileText },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
+    { name: 'Error Logs', href: '/admin/logs', icon: AlertCircle },
   ];
 
   return (
@@ -70,7 +71,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         
         <nav className="flex-1 py-6 px-3 space-y-1">
           {navigation.map((item) => {
-            const isActive = location.pathname === item.href || location.pathname.startsWith(item.href + '/');
+            const isActive = item.exact 
+              ? location.pathname === item.href
+              : location.pathname === item.href || location.pathname.startsWith(item.href + '/');
             return (
               <Link
                 key={item.name}

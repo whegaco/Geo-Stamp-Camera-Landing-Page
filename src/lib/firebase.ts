@@ -52,7 +52,7 @@ interface FirestoreErrorInfo {
 }
 
 export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
-  const errInfo: FirestoreErrorInfo = {
+  const errInfo = {
     error: error instanceof Error ? error.message : String(error),
     authInfo: {
       userId: auth.currentUser?.uid,
@@ -66,8 +66,17 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
       })) || []
     },
     operationType,
-    path
+    path,
+    timestamp: Date.now()
   }
+  
+  // Try to push to firestore, ignore failure to avoid infinite loops
+  try {
+    addDoc(collection(db, 'error_logs'), errInfo).catch(e => console.error('Failed logging error to firestore', e));
+  } catch (e) {
+    console.error('Failed logging error to firestore', e);
+  }
+
   console.error('Firestore Error: ', JSON.stringify(errInfo));
   throw new Error(JSON.stringify(errInfo));
 }
