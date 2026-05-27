@@ -47,9 +47,7 @@ export default function FAQ() {
   return (
     <section className="py-24 bg-slate-950 border-t border-slate-900 relative">
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">

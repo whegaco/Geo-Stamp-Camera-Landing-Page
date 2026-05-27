@@ -10,12 +10,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   font-family: var(--font-cairo);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text Selection */
+::selection {
+  background-color: rgba(198, 255, 0, 0.25);
+  color: #C6FF00;
 }
 
 /* Custom Scrollbar for a polished look */
@@ -64,6 +71,17 @@ body {
 }
 .custom-prose h3 {
   font-size: 1.35em;
+}
+.custom-prose a {
+  color: var(--color-brand);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed rgba(198, 255, 0, 0.4);
+  transition: all 0.2s ease;
+}
+.custom-prose a:hover {
+  border-bottom: 1px solid var(--color-brand);
+  text-shadow: 0 0 12px rgba(198,255,0,0.5);
 }
 .custom-prose strong {
   font-weight: 700;

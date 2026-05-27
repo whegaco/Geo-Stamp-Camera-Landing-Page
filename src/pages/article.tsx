@@ -3,11 +3,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-import { articles } from '../data/articles';
 import Markdown from 'react-markdown';
-import { Calendar, User, Clock, ChevronRight, ChevronLeft, Share2 } from 'lucide-react';
+import { Calendar, User, Clock, ChevronRight, ChevronLeft, Share2, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
+import BlurImage from '../components/BlurImage';
+import { collection, query, where, getDocs, limit } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { format } from 'date-fns';
 
 const TwitterIcon = () => (
   <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
@@ -27,11 +30,58 @@ const WhatsappIcon = () => (
   </svg>
 );
 
+interface ArticleData {
+  id: string;
+  slug: string;
+  titleEn: string;
+  titleAr: string;
+  excerptEn: string;
+  excerptAr: string;
+  contentEn: string;
+  contentAr: string;
+  date: string;
+  authorEn: string;
+  authorAr: string;
+  readTimeEn: string;
+  readTimeAr: string;
+  image: string;
+  keywordsEn: string;
+  keywordsAr: string;
+  createdAt: number;
+}
+
 export default function Article() {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
-  
-  const article = articles.find(a => a.slug === slug);
+  const [article, setArticle] = useState<ArticleData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const q = query(collection(db, 'articles'), where('slug', '==', slug), limit(1));
+        const snapshot = await getDocs(q);
+        if (!snapshot.empty) {
+          setArticle({ id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as ArticleData);
+        }
+      } catch (error) {
+        handleFirestoreError(error, OperationType.GET, 'articles');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArticle();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center">
+        <Navbar />
+        <Loader2 className="w-10 h-10 text-brand animate-spin" />
+        <Footer />
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -55,7 +105,8 @@ export default function Article() {
   const title = language === 'ar' ? article.titleAr : article.titleEn;
   const description = language === 'ar' ? article.excerptAr : article.excerptEn;
   const content = language === 'ar' ? article.contentAr : article.contentEn;
-  const date = language === 'ar' ? article.dateAr : article.dateEn;
+  const dateStr = article.date ? format(new Date(article.date), 'MMM d, yyyy') : format(new Date(article.createdAt), 'MMM d, yyyy');
+  const date = language === 'ar' ? article.date || dateStr : dateStr;
   const author = language === 'ar' ? article.authorAr : article.authorEn;
   const readTime = language === 'ar' ? article.readTimeAr : article.readTimeEn;
   const keywords = language === 'ar' ? article.keywordsAr : article.keywordsEn;
@@ -138,11 +189,10 @@ export default function Article() {
           className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl"
         >
           <div className="relative h-64 md:h-96">
-            <img 
-              src={article.image} 
+            <BlurImage 
+              src={article.image || 'https://images.unsplash.com/photo-1541888086903-ee4e10c71199?w=800&q=80'} 
               alt={title}
-              className="w-full h-full object-cover"
-              loading="lazy"
+              containerClassName="absolute inset-0 w-full h-full"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
             

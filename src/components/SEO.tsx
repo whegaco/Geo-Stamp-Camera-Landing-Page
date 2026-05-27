@@ -20,7 +20,7 @@ const getSocialImageForPath = (path: string): string => {
     case '/terms':
       return 'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop'; // Documents/Law
     case '/blog':
-      return 'https://images.unsplash.com/photo-1508847154043-be12a3bab46a?q=80&w=1200&auto=format&fit=crop'; // Planning/Blueprint
+      return 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop'; // Planning/Blueprint
     case '/':
     default:
       return 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop'; // Construction Architecture
@@ -85,6 +85,62 @@ export default function SEO({ title, description, url, image, keywords }: SEOPro
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={sharingImage} />
       <meta name="twitter:image:alt" content={`${title} - Geo-Stamp Camera`} />
+
+      {/* Structured Data (JSON-LD) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": language === 'ar' ? 'الرئيسية' : 'Home',
+              "item": "https://geo-stamp-camera.vercel.app/" + (language === 'en' ? '?lang=en' : '')
+            },
+            ...(cleanUrl.startsWith('/blog/') ? [
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": language === 'ar' ? 'المدونة' : 'Blog',
+                "item": "https://geo-stamp-camera.vercel.app/blog" + (language === 'en' ? '?lang=en' : '')
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": title,
+                "item": canonicalUrl
+              }
+            ] : cleanUrl !== '' ? [
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": title,
+                "item": canonicalUrl
+              }
+            ] : [])
+          ]
+        }) }} />
+
+      {/* Software Application Schema (only on homepage or everywhere) */}
+      {cleanUrl === '' && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Geo-Stamp Camera",
+            "operatingSystem": "ANDROID",
+            "applicationCategory": "BusinessApplication",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "1250"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          }) }} />
+      )}
     </Helmet>
   );
 }

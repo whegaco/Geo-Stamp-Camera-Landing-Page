@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "Article": {
+      "title": "Article",
+      "description": "Represents a blog article.",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "excerptEn": { "type": "string" },
+        "excerptAr": { "type": "string" },
+        "contentEn": { "type": "string" },
+        "contentAr": { "type": "string" },
+        "date": { "type": "string" },
+        "authorEn": { "type": "string" },
+        "authorAr": { "type": "string" },
+        "readTimeEn": { "type": "string" },
+        "readTimeAr": { "type": "string" },
+        "image": { "type": "string" },
+        "keywordsEn": { "type": "string" },
+        "keywordsAr": { "type": "string" },
+        "createdAt": { "type": "number", "description": "Timestamp" },
+        "updatedAt": { "type": "number", "description": "Timestamp" }
+      },
+      "required": ["slug", "titleEn", "titleAr", "createdAt"]
+    },
+    "PageConfig": {
+      "title": "PageConfig",
+      "description": "Dynamic configuration for the application (e.g. settings)",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string" },
+        "updatedAt": { "type": "number", "description": "Timestamp" }
+      }
+    }
+  },
+  "firestore": {
+    "articles": {
+      "schema": { "$ref": "#/entities/Article" },
+      "description": "Contains blog articles."
+    },
+    "config": {
+      "schema": { "$ref": "#/entities/PageConfig" },
+      "description": "Contains site configuration, e.g. /config/main."
+    }
+  }
+}

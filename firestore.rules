@@ -1,0 +1,65 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive Helpers
+    function isSignedIn() { return request.auth != null; }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isAdmin() {
+      // Hardcoded admin based on user's email
+      return isSignedIn() && request.auth.token.email == "kassema20@gmail.com" && request.auth.token.email_verified == true;
+    }
+    
+    // Schema Validators
+    function isValidArticle(data) {
+      return data.keys().hasAll(['slug', 'titleEn', 'titleAr', 'createdAt']) &&
+        data.slug is string && data.slug.size() <= 200 &&
+        data.titleEn is string && data.titleEn.size() <= 500 &&
+        data.titleAr is string && data.titleAr.size() <= 500 &&
+        data.createdAt is number;
+    }
+    
+    function isValidPageConfig(data) {
+      return data.keys().hasAll(['updatedAt']) &&
+        data.updatedAt is number;
+    }
+
+    function isValidEvent(data) {
+      return data.keys().hasAll(['eventName', 'timestamp']) &&
+        data.eventName is string &&
+        data.timestamp is number;
+    }
+
+    // Collections Operations
+    match /events/{eventId} {
+      allow create: if isValidEvent(incoming());
+      allow read, update, delete: if isAdmin();
+    }
+    
+    match /articles/{articleId} {
+      allow read: if true; // Public read
+      allow create: if isAdmin()
+        && isValidArticle(incoming());
+      allow update: if isAdmin()
+        && isValidArticle(incoming());
+      allow delete: if isAdmin();
+    }
+    
+    match /config/{configId} {
+      allow read: if true; // Public read
+      allow create: if isAdmin()
+        && isValidPageConfig(incoming())
+        && incoming().updatedAt == request.time.toMillis();
+      allow update: if isAdmin()
+        && isValidPageConfig(incoming())
+        && incoming().updatedAt == request.time.toMillis();
+      allow delete: if isAdmin();
+    }
+  }
+}

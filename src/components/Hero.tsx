@@ -3,10 +3,43 @@ import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import HeroMockup from './mockups/HeroMockup';
 import AppleIcon from './AppleIcon';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
+interface SiteConfig {
+  heroHeadlineEn?: string;
+  heroHeadlineAr?: string;
+  googlePlayUrl?: string;
+  appStoreUrl?: string;
+}
 
 export default function Hero() {
   const { t, language } = useLanguage();
+  const [siteConfig, setSiteConfig] = useState<SiteConfig | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchConfig = async () => {
+      try {
+        const docRef = doc(db, 'config', 'main');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists() && isMounted) {
+          setSiteConfig(docSnap.data() as SiteConfig);
+        }
+      } catch (err) {
+        console.error('Failed to fetch home config', err);
+      }
+    };
+    fetchConfig();
+    return () => { isMounted = false; };
+  }, []);
+
+  const headline = language === 'ar' 
+    ? (siteConfig?.heroHeadlineAr || t('title_1', 'hero') + ' ' + t('title_2', 'hero'))
+    : (siteConfig?.heroHeadlineEn || t('title_1', 'hero') + ' ' + t('title_2', 'hero'));
+    
+  const playUrl = siteConfig?.googlePlayUrl || 'https://play.google.com/store/apps/details?id=com.ali.geostamp';
   
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -28,11 +61,8 @@ export default function Hero() {
             {t('badge', 'hero')}
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-            {t('title_1', 'hero')} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-l from-brand to-lime-300">
-              {t('title_2', 'hero')}
-            </span>
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
+            {headline}
           </h1>
           
           <p className={`text-lg lg:text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed ${language === 'en' ? 'text-left lg:text-left' : ''}`}>
@@ -40,15 +70,29 @@ export default function Hero() {
           </p>
           
           <div className={`flex flex-col sm:flex-row items-center gap-4 justify-center ${language === 'en' ? 'lg:justify-start' : 'lg:justify-start'}`}>
-            <a 
-              href="https://play.google.com/store/apps/details?id=com.ali.geostamp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-brand text-slate-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-hover transition-all shadow-[0_0_20px_rgba(198,255,0,0.2)] hover:shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:-translate-y-1"
-            >
-              <Download className="w-6 h-6" />
-              {t('btn_download', 'hero')}
-            </a>
+            {playUrl && (
+              <a 
+                href={playUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-brand text-slate-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-hover transition-all shadow-[0_0_20px_rgba(198,255,0,0.2)] hover:shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:-translate-y-1"
+              >
+                <Download className="w-6 h-6" />
+                {t('btn_download', 'hero')}
+              </a>
+            )}
+            
+            {siteConfig?.appStoreUrl && (
+              <a 
+                href={siteConfig.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl hover:-translate-y-1 border border-slate-700"
+              >
+                <AppleIcon className="w-6 h-6" />
+                App Store
+              </a>
+            )}
             
             <a 
               href="#features"

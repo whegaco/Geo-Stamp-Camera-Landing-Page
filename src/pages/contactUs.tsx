@@ -1,11 +1,38 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, MapPin, Globe } from 'lucide-react';
+import { Mail, MapPin, Globe, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../lib/firebase';
+
+interface SiteConfig {
+  contactEmail?: string;
+  contactPhone?: string;
+}
 
 export default function ContactUs() {
   const { language, t } = useLanguage();
+  const [config, setConfig] = useState<SiteConfig | null>(null);
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const docRef = doc(db, 'config', 'main');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setConfig(docSnap.data() as SiteConfig);
+        }
+      } catch (err) {
+        console.error('Failed to fetch contact config', err);
+      }
+    };
+    fetchConfig();
+  }, []);
+
+  const email = config?.contactEmail || 'kassema20@gmail.com';
+  const phone = config?.contactPhone || '+1 (555) 000-0000';
   
   return (
     <main className="min-h-screen bg-slate-950 font-cairo">
@@ -27,7 +54,7 @@ export default function ContactUs() {
             : 'We are here to help you and answer any questions regarding the Geo-Stamp Camera app.'}
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand/50 transition-colors">
             <div className="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center text-brand mb-4">
@@ -39,8 +66,23 @@ export default function ContactUs() {
             <p className="text-slate-400 mb-4 text-sm">
               {language === 'ar' ? 'للأسئلة العامة، الدعم الفني، وطلبات الأعمال.' : 'For general inquiries, technical support, and business requests.'}
             </p>
-            <a href="mailto:kassema20@gmail.com" className="text-brand font-bold hover:underline">
-              kassema20@gmail.com
+            <a href={`mailto:${email}`} className="text-brand font-bold hover:underline">
+              {email}
+            </a>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand/50 transition-colors">
+            <div className="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center text-brand mb-4">
+              <Phone className="w-7 h-7" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">
+              {language === 'ar' ? 'الهاتف' : 'Phone'}
+            </h3>
+            <p className="text-slate-400 mb-4 text-sm">
+               {language === 'ar' ? 'للتواصل المباشر والرد السريع.' : 'For direct contact and fast response.'}
+            </p>
+            <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-brand font-bold hover:underline" style={{direction: "ltr"}}>
+              {phone}
             </a>
           </div>
 

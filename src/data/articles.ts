@@ -110,7 +110,7 @@ By making the switch to digital reporting, teams save an average of 5 to 7 hours
     authorAr: 'م. عمر',
     readTimeEn: '4 min read',
     readTimeAr: '٤ دقائق قراءة',
-    image: 'https://images.unsplash.com/photo-1541888086903-ee4e10c71199?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop',
     keywordsEn: 'digital transformation, PDF reports, field engineers, paperless construction, construction apps, automated reporting',
     keywordsAr: 'التحول الرقمي, تقارير PDF, المهندسين الميدانيين, بناء بدون ورق, تطبيقات البناء, التقارير المؤتمتة'
   },
@@ -230,7 +230,7 @@ Instead of emailing a chaotic zip file of scattered photos, Geo-Stamp Camera tra
     authorAr: 'فريق التحرير',
     readTimeEn: '7 min read',
     readTimeAr: '٧ دقائق قراءة',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356f58?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop',
     keywordsEn: 'geo-stamp camera, photo documentation, PDF reports, field photos, GPS camera, daily site logs',
     keywordsAr: 'تطبيق كاميرا, توثيق الصور, تقارير PDF, صور ميدانية, كاميرا GPS, يوميات الموقع, تطبيق مقاولات'
   },
@@ -298,7 +298,7 @@ Apps brilliantly specialized to generate PDF reports directly from field photos 
     authorAr: 'فريق التحرير',
     readTimeEn: '6 min read',
     readTimeAr: '٦ دقائق قراءة',
-    image: 'https://images.unsplash.com/photo-1508847154043-be12a3bab46a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
     keywordsEn: 'daily site reports, DSR, construction reporting, project management, site logs, standardizing reports',
     keywordsAr: 'تقارير يومية, إدارة المشاريع, تقارير الموقع, سجلات البناء, توحيد التقارير, مستخلصات المقاولين'
   },
