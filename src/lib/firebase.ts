@@ -77,6 +77,8 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
     console.error('Failed logging error to firestore', e);
   }
 
-  console.error('Firestore Error: ', JSON.stringify(errInfo));
-  throw new Error(JSON.stringify(errInfo));
+  console.error('Firestore Error: ', errInfo);
+  // Do not rethrow by default to prevent Unhandled Promise Rejections.
+  // The caller can check if they want to throw.
+  return errInfo;
 }
