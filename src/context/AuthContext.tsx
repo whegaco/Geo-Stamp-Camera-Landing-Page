@@ -24,21 +24,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
-  const isAdmin = user?.email === 'kassema20@gmail.com' && user?.emailVerified === true;
+  const isAdmin = user?.email === 'kassema20@gmail.com';
 
   const handleLogin = async () => {
     try {
       await logInWithGoogle();
     } catch (err: any) {
       console.error('Login error:', err);
-      // Give a helpful alert, especially for unauthorized-domain errors
       if (err.code === 'auth/unauthorized-domain') {
-        alert('حدث خطأ: النطاق الحالي غير مصرح به. يرجى إضافة هذا الرابط (App URL) إلى قائمة "Authorized domains" في إعدادات Firebase Authentication.');
+        alert('حدث خطأ: النطاق غير مصرح به. يرجى إضافة هذا الرابط إلى "Authorized domains" في إعدادات Firebase.');
       } else if (err.code === 'auth/popup-closed-by-user') {
-        alert('تم إغلاق نافذة تسجيل الدخول. إذا كنت تستخدم التطبيق داخل إطار (iFrame)، يرجى فتح التطبيق في نافذة جديدة والمحاولة مرة أخرى.');
+        alert('حدث خطأ: تم رفض نافذة تسجيل الدخول.\n\nالسبب: التطبيق يعمل داخل إطار (iFrame) داخل استوديو الذكاء الاصطناعي والذي يمنع النوافذ المنبثقة.\n\nالحل: اضغط على زر "Open App" (فتح في نافذة جديدة) الموجود في أعلى يمين شاشتك، وحاول تسجيل الدخول هناك.');
       } else {
-        alert(`فشل تسجيل الدخول: ${err.message || String(err)}\n\nإذا كنت تواجه مشكلة، جرب فتح التطبيق في نافذة جديدة.`);
+        alert(`فشل تسجيل الدخول: ${err.message || String(err)}\n\nجرب فتح التطبيق في تبويب/نافذة جديدة.`);
       }
+      throw err;
     }
   };
 
