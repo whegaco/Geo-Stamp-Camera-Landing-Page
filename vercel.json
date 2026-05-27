@@ -15,7 +15,11 @@
   ],
   "rewrites": [
     {
-      "source": "/admin(.*)",
+      "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/:path*",
       "destination": "/index.html"
     },
     {
@@ -30,7 +34,7 @@
       "destination": "/en/index.html"
     },
     {
-      "source": "/:path((?!sitemap\\.xml|robots\\.txt|favicon\\.svg|manifest\\.json|.*\\..+).*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "query",
@@ -38,10 +42,10 @@
           "value": "en"
         }
       ],
-      "destination": "/en/:path/index.html"
+      "destination": "/en/:path*/index.html"
     },
     {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.svg|manifest\\.json|.*\\..+).*)$",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
