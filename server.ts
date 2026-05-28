@@ -70,18 +70,41 @@ async function startServer() {
 
   // --- SEO & Indexing Tools ---
   app.get('/robots.txt', (req, res) => {
+    const pubPath = path.join(process.cwd(), 'public', 'robots.txt');
+    const distPath = path.join(process.cwd(), 'dist', 'robots.txt');
+    
+    if (fs.existsSync(distPath)) {
+      res.type('text/plain');
+      return res.sendFile(distPath);
+    } else if (fs.existsSync(pubPath)) {
+      res.type('text/plain');
+      return res.sendFile(pubPath);
+    }
+    
     const domain = 'https://geo-stamp-camera.vercel.app';
     const robotsContent = `User-agent: *
 Disallow: /admin
 Disallow: /admin/
 Disallow: /admin/*
 Allow: /
+
 Sitemap: ${domain}/sitemap.xml`;
     res.type('text/plain');
     res.send(robotsContent);
   });
 
   app.get('/sitemap.xml', async (req, res) => {
+    const pubPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+    const distPath = path.join(process.cwd(), 'dist', 'sitemap.xml');
+    
+    if (fs.existsSync(distPath)) {
+      res.type('application/xml; charset=utf-8');
+      return res.sendFile(distPath);
+    } else if (fs.existsSync(pubPath)) {
+      res.type('application/xml; charset=utf-8');
+      return res.sendFile(pubPath);
+    }
+
     const domain = 'https://geo-stamp-camera.vercel.app';
     
     // Static Routes
@@ -144,7 +167,7 @@ Sitemap: ${domain}/sitemap.xml`;
     }
 
     xml += `\n</urlset>`;
-    res.type('application/xml');
+    res.type('application/xml; charset=utf-8');
     res.send(xml);
   });
 

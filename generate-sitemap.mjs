@@ -20,6 +20,10 @@ const articlePages = slugs.map((slug, i) => ({
 
 const pages = [
   { path: '/', priority: 1.0, changefreq: 'weekly', lastmod: '2026-05-23' },
+  { path: '/tools', priority: 0.9, changefreq: 'weekly', lastmod: '2026-05-25' },
+  { path: '/tools/geo-stamper', priority: 1.0, changefreq: 'weekly', lastmod: '2026-05-25' },
+  { path: '/tools/report-generator', priority: 0.9, changefreq: 'weekly', lastmod: '2026-05-25' },
+  { path: '/tools/materials-calculator', priority: 0.9, changefreq: 'weekly', lastmod: '2026-05-25' },
   { path: '/privacy', priority: 0.5, changefreq: 'monthly', lastmod: '2026-05-15' },
   { path: '/terms', priority: 0.5, changefreq: 'monthly', lastmod: '2026-05-15' },
   { path: '/about', priority: 0.8, changefreq: 'monthly', lastmod: '2026-05-20' },
