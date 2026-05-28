@@ -50,6 +50,112 @@ interface ArticleData {
   createdAt: number;
 }
 
+const staticGeoStamperGuide: ArticleData = {
+  id: 'static-geo-stamper-guide',
+  slug: 'geo-stamper-guide',
+  titleEn: 'The Ultimate Guide to Using the Intelligent Geo-Stamping and Verification Agent',
+  titleAr: 'الدليل الكامل لاستخدام وكيل الختم الجغرافي والتحقق من الصور الذكي',
+  excerptEn: 'Learn how to automatically stamp and inspect field engineering photos, extract GPS coordinates, and embed custom logos to secure and verify site work.',
+  excerptAr: 'تعرف بالتفصيل على طريقة وضع لوجو المشروع علي الصور وخطوات تصوير بالتاريخ والوقت وموقع gps (جي بي اس) مع ختم وتفقد الصور الهندسية الميدانية بدقة فائقة.',
+  contentEn: `
+# 🌟 Smart Geo-Stamping: How to Professionally Document Field Work
+
+In the construction and engineering sector, a photograph is the ultimate "document of truth." However, a simple photo without precise coordinate data or verified timestamps can lose its weight when submitted to project owners, consultants, or legal entities.
+
+This is where the **Geo-Stamp & Verification Agent** comes in, designed to overlay a secure, high-integrity metadata stamp directly onto your pictures.
+
+---
+
+## 🛠️ Step-by-Step: How to Use the Tool
+
+### 📸 Step 1: Upload Your Image & Extract Metadata
+Head to our **[Smart Image Geo-Stamping Tool](/tools/geo-stamper)** and drag & drop your on-site photo.
+*   **GPS Extraction:** If the photo was taken with location services enabled on your smartphone, our engine automatically parses the EXIF metadata to retrieve and display the exact latitude and longitude coordinates.
+
+### 📝 Step 2: Input Project Details
+Fill out the crucial on-site parameters:
+1.  **Project Name:** e.g., "Al-Lulua Residential Compound Project".
+2.  **Supervisor/Engineer Name:** To legally back the authenticity of the audit.
+3.  **Observations & Status:** You can type manual notes like "Concrete reinforcement completed and civil safety rules satisfied."
+
+### 🧠 Step 3: Extract & Describe Automatically with AI
+Simply click on **"Analyze and Extract with AI"**.
+*   Our computer-vision agent inspects the elements in your image, detects construction items (reinforced steel, bricks, conduits, scaffolds) and automatically writes professional engineering notes directly in your observations field!
+
+### 🎨 Step 4: Customize Your Logo & Frame
+Tailor the design preset to fit your company's aesthetic:
+*   **Logo Type:** Choose between an engineering emblem, camera lens icon, or upload your own **transparent brand logo (PNG)**!
+*   **Placement & Position:** Decide between a panoramic "bottom bar" layout, or beautiful curved dialog panels on the bottom-right, bottom-left, or top-right.
+*   **Color Themes:** Enjoy 4 premium options including *Royal Gold*, *High-Visibility Safety Orange*, *Classic Steel Dark*, and *Minimalist Snow White*.
+
+### 💾 Step 5: High Resolution Download
+Once satisfied, click **"Export & Download Stamped Photo"** to generate a perfect, production-grade output file at 100% camera resolution on your device.
+
+---
+
+💡 **Pro-Tip for Construction Sites:** Always make sure GPS tracking is enabled on your phone and camera app settings before snapping pictures so the agent can parse and render map coordinates transparently!
+
+---
+
+[🚀 Start Stamping Your Field Photos Offline & Online Now](/tools/geo-stamper)
+`,
+  contentAr: `
+# 🌟 الختم الجغرافي الذكي: دليل تصوير بالتاريخ والوقت وموقع gps وكيفية وضع لوجو المشروع علي الصور باحترافية؟
+
+في قطاعات التشييد، الهندسة، والتطوير العقاري، تعتبر الصور الميدانية الموثقة هي الأساس لكل خطوة فنية. لكن مجرد التقاط صورة عادية بدون مطابقتها مع **إحداثيات جي بي اس (GPS)** دقيقة أو ختم وقت وتاريخ حقيقي يمكن أن يُعرض العمل للرفض من قِبل الاستشاريين أو ملاك المشروع.
+
+لتجنب هذه المشاكل، تم ابتكار **وكيل جيو ستامب (Geo-Stamp Agent)**، ليتيح لك **تصوير بالتاريخ والوقت وموقع gps** مباشر، إلى جانب ميزة **وضع لوجو المشروع علي الصور** وعلامتك المائية لحماية وتوثيق حقوقك الهندسية والميدانية مجاناً وبدقة كاملة.
+
+---
+
+## 🛠️ خطوة بخطوة: شرح تشغيل واستخدام الأداة بالصور والتفصيل
+
+### 📸 الخطوة الأولى: رفع الصورة واستخراج الإحداثيات رقمياً
+قم بالدخول إلى صفحة **[وكيل استخراج الصور والختم الهيكلي](/tools/geo-stamper)** ثم اسحب صورتك الملتقطة من كاميرا الهاتف أو انقر لرفعها.
+*   **بيانات نظام جي بي اس (GPS):** إذا كانت الصورة تحتوي على إحداثيات موقع جغرافي مدمجة تلقائياً من كاميرا الهاتف الخاص بك (بيانات EXIF Metadata)، سيقوم النظام باستخراجها فوراً وعرض خطوط الطول والعرض بدقة 100% كما هو موضح بشريط الموثوقية الأخضر المضيء.
+
+### 📝 الخطوة الثانية: تخصيص المعلومات والمشروع
+أدخل البيانات الميدانية الأساسية المطلوبة على الختم:
+1.  **اسم المشروع:** مثل "مشروع كمبوند لؤلؤة العاصمة بالحي السكني" لضمان ربطه بالتقارير.
+2.  **المهندس المسؤول:** لتدعيم التوقيع والاعتماد الفني والرقابي في المستندات.
+3.  **الملاحظات والمعاينة الميدانية:** يمكنك كتابة أي ملاحظة يدوياً مثل "تم صب الخرسانة المسلحة وتأكيد معايير السلامة الإنشائية بموجب إحداثيات جي بي اس الحية".
+
+### 🧠 الخطوة الثالثة: استخلاص الملاحظات الفنية بالذكاء الاصطناعي
+بدل كتابة الملاحظات يدوياً، انقر على زر **"استخلاص وفحص بالذكاء الاصطناعي"**.
+*   يقوم وكيل الرؤية الحاسوبية بفحص تفاصيل الصورة فورياً، واكتشاف الأجسام، وحالة العمل (مثل كابلات، تسليح، طوب، توريدات) وتقييم معايير الجودة والسلامة المهنية ليقوم بصياغة ملاحظات فنية دقيقة وتعبئتها في مربع الملاحظات فوراً!
+
+### 🎨 الخطوة الرابعة: وضع لوجو المشروع علي الصور وتخصيص المظهر
+اختر طريقة العرض المناسبة لشركة المقاولات أو الاستشارات الهندسية لتعكس المظهر الاحترافي المميز:
+*   **وضع لوجو المشروع علي الصور:** يمكنك رفع شعار شركتك المخصص أو لوجو المشروع الهيكلي (بصيغة PNG شفافة) ليتم طباعته على الختم فورياً كعلامة مائية مدمجة لحفظ الحقوق الفكرية ومنع التلاعب.
+*   **الموقع والتموضع:** اختر بين "شريط سفلي عريض" للمستندات الكبيرة، أو "مربع جانبي دائرى الحواف" لعدم تظليل معالم الصورة الأساسية.
+*   **أنماط الألوان المعتمدة للختم بالتاريخ والوقت وموقع gps:**
+    *   *الداكن الفاخر:* لمسة تقنية أنيقة لحفظ تباين الألوان على جميع الخلفيات.
+    *   *الملكي الذهبي:* مخصص للمشاريع الفاخرة والعقارات الراقية وتصميمات الفلل المعتمدة.
+    *   *السلامة المهنية (برتقالي عالي التباين):* مثالي لتوثيق المخاطر والمشكلات وحالات السلامة بموقع العمل.
+    *   *الناصع الأبيض:* لصور النهار والمخططات الواضحة.
+
+### 💾 الخطوة الخامسة: التحميل الفوري بدقة كاملة
+بعد ضبط المعاينة المباشرة التفاعلية، انقر على **"استخراج وتحميل الصورة الختامية"**؛ ليقوم محرك الرسوم الفوري بتوليد ملف فوتوغرافي عالي الجودة وحفظه مباشرة في جهازك بنفس دقة الكاميرا الأصلية!
+
+---
+
+💡 **نصيحة مهندس جيو ستامب (Geo-Stamp) الميداني:** احرص دائماً على تمكين تتبع الموقع وجي بي اس (GPS) بهاتفك أثناء التقاط الصور ليقوم وكيل الختم الجغرافي بقراءتها وتضمين إحداثيات الخريطة بدقة فائقة وبشكل فوري يضمن تقديم التقارير الفنية للجهات الرقابية بدون أدنى شك.
+
+---
+
+[ابدأ الآن بتوثيق أول مجموعة صور ميدانية مجاناً عبر وكيل الختم الجغرافي الذكي 🚀](/tools/geo-stamper)
+`,
+  date: '2026-05-28',
+  authorEn: 'Eng. Ahmed Al-Kassem',
+  authorAr: 'المهندس / أحمد القاسم',
+  readTimeEn: '5 min read',
+  readTimeAr: '٥ دقائق قراءة',
+  image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
+  keywordsEn: 'Geo-Stamp, Photo stamp, Engineering photos, GPS coordinates, EXIF generator',
+  keywordsAr: 'وضع لوجو المشروع علي الصور, تصوير بالتاريخ والوقت وموقع gps, جي بي اس, ختم الصور الهندسية, جيو ستامب, إحداثيات الصور, كاميرا الموقع, توثيق البناء, تحديد موقع الصور, كاميرا جي بي اس للاندرويد, ختم الصور التاريخ والوقت, كاميرا الخرائط والموقع',
+  createdAt: 1779926402000
+};
+
 export default function Article() {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
@@ -58,6 +164,11 @@ export default function Article() {
 
   useEffect(() => {
     const fetchArticle = async () => {
+      if (slug === 'geo-stamper-guide') {
+        setArticle(staticGeoStamperGuide);
+        setLoading(false);
+        return;
+      }
       try {
         const q = query(collection(db, 'articles'), where('slug', '==', slug), limit(1));
         const snapshot = await getDocs(q);

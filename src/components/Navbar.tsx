@@ -38,8 +38,14 @@ export default function Navbar() {
            className="flex items-center gap-4"
         >
           <Link 
+            to="/tools/geo-stamper"
+            className="flex items-center text-slate-300 hover:text-white transition-colors px-3 py-2 border border-slate-800 rounded-lg bg-slate-900 mx-1 hover:bg-slate-800 text-xs sm:text-sm font-bold text-center"
+          >
+            {language === 'ar' ? 'الختم الذكي' : 'Smart Stamp'}
+          </Link>
+          <Link 
             to="/blog"
-            className="flex items-center text-slate-300 hover:text-white transition-colors px-2 py-2.5 font-bold text-sm sm:text-base"
+            className="flex items-center text-slate-300 hover:text-white transition-colors px-2 py-2 text-xs sm:text-sm font-bold"
           >
             {t('blog', 'nav')}
           </Link>

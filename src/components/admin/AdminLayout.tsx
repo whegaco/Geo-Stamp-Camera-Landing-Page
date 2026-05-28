@@ -1,13 +1,14 @@
 import { ReactNode, useState } from 'react';
 import { Navigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { LayoutDashboard, FileText, Settings, LogOut, Loader2, AlertCircle } from 'lucide-react';
-import { motion } from 'motion/react';
+import { LayoutDashboard, FileText, Settings, LogOut, Loader2, AlertCircle, Menu, X, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const { user, loading, isAdmin, login, logout } = useAuth();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   if (loading) {
     return (
@@ -83,20 +84,50 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard, exact: true },
     { name: 'Articles', href: '/admin/articles', icon: FileText },
+    { name: 'Agent SEO', href: '/admin/agent-seo', icon: Sparkles },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
     { name: 'Error Logs', href: '/admin/logs', icon: AlertCircle },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex">
+    <div className="min-h-screen bg-slate-950 text-white flex flex-col md:flex-row shadow">
       <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+
+      {/* Mobile Header */}
+      <div className="md:hidden flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900">
+        <h2 className="text-lg font-bold text-brand tracking-wider">Geo-Stamp Admin</h2>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Sidebar Overlay (Mobile) */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Sidebar */}
-      <div className="w-64 border-r border-slate-800 bg-slate-900 flex flex-col">
-        <div className="h-16 flex items-center px-6 border-b border-slate-800">
+      <div 
+        className={`fixed md:static inset-y-0 left-0 z-50 w-64 border-r border-slate-800 bg-slate-900 flex flex-col transform transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        }`}
+      >
+        <div className="h-16 hidden md:flex items-center px-6 border-b border-slate-800">
           <h2 className="text-xl font-bold text-brand tracking-wider">Geo-Stamp Admin</h2>
         </div>
         
-        <nav className="flex-1 py-6 px-3 space-y-1">
+        <nav className="flex-1 py-6 px-3 space-y-1 overflow-y-auto">
           {navigation.map((item) => {
             const isActive = item.exact 
               ? location.pathname === item.href
@@ -105,6 +136,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               <Link
                 key={item.name}
                 to={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors ${
                   isActive 
                     ? 'bg-brand text-slate-950' 
@@ -118,7 +150,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <div className="p-4 border-t border-slate-800">
+        <div className="p-4 border-t border-slate-800 shrink-0">
           <div className="flex items-center gap-3 mb-4 px-2">
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-white truncate">{user.displayName || 'Admin'}</p>
@@ -136,7 +168,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 md:overflow-hidden min-h-[calc(100vh-64px)] md:min-h-screen">
         <main className="flex-1 overflow-y-auto">
           <motion.div
             key={location.pathname}
@@ -144,7 +176,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="p-8 max-w-7xl mx-auto w-full"
+            className="p-4 md:p-8 max-w-7xl mx-auto w-full"
           >
             {children}
           </motion.div>

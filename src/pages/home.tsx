@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Features = lazy(() => import('../components/Features'));
+const AgentStamperPromo = lazy(() => import('../components/AgentStamperPromo'));
 const Showcase = lazy(() => import('../components/Showcase'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
 const FAQ = lazy(() => import('../components/FAQ'));
@@ -28,6 +29,7 @@ export default function Home() {
       
       <Suspense fallback={<div className="h-40 flex items-center justify-center"><div className="w-8 h-8 rounded-full border-4 border-slate-800 border-t-brand animate-spin"></div></div>}>
         <Features />
+        <AgentStamperPromo />
         <Showcase />
         <Testimonials />
         <FAQ />

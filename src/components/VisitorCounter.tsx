@@ -7,10 +7,10 @@ export default function VisitorCounter() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
-    // Fetch and increment real visitor count using counterapi.dev
+    // Fetch and increment real visitor count using local secure API
     const fetchVisitorCount = async () => {
       try {
-        const response = await fetch('https://api.counterapi.dev/v1/geostampAppVisits/visits/up');
+        const response = await fetch('/api/visitor-count');
         if (response.ok) {
           const data = await response.json();
           setVisitorCount(data.count);

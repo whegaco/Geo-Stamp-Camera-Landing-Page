@@ -27,6 +27,22 @@ interface ArticleItem {
   createdAt: number;
 }
 
+const staticGeoStamperBlogItem: ArticleItem = {
+  id: 'static-geo-stamper-guide',
+  slug: 'geo-stamper-guide',
+  titleEn: 'The Ultimate Guide to Using the Intelligent Geo-Stamping and Verification Agent',
+  titleAr: 'الدليل الكامل لاستخدام وكيل الختم الجغرافي والتحقق من الصور الذكي',
+  excerptEn: 'Learn how to automatically stamp and inspect field engineering photos, extract GPS coordinates, and embed custom logos to secure and verify site work.',
+  excerptAr: 'تعرف على كيفية ختم وتفقد الصور الهندسية الميدانية، واستخراج إحداثيات GPS، وتضمين شعار شركتك لحفظ حقوقك وتدقيق المواقع.',
+  date: '2026-05-28',
+  authorEn: 'Eng. Ahmed Al-Kassem',
+  authorAr: 'المهندس / أحمد القاسم',
+  readTimeEn: '5 min read',
+  readTimeAr: '٥ دقائق قراءة',
+  image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+  createdAt: 1779926402000
+};
+
 export default function Blog() {
   const { language } = useLanguage();
   const [articles, setArticles] = useState<ArticleItem[]>([]);
@@ -40,10 +56,19 @@ export default function Blog() {
           id: doc.id,
           ...doc.data()
         })) as ArticleItem[];
-        setArticles(docs);
+        
+        // Always include static geo-stamper guide at the top
+        const hasGuide = docs.some(d => d.slug === 'geo-stamper-guide');
+        const finalDocs = hasGuide ? docs : [staticGeoStamperBlogItem, ...docs];
+        setArticles(finalDocs);
         setLoading(false);
       },
-      (error) => handleFirestoreError(error, OperationType.LIST, 'articles')
+      (error) => {
+        handleFirestoreError(error, OperationType.LIST, 'articles');
+        // Load static guide on fallback error
+        setArticles([staticGeoStamperBlogItem]);
+        setLoading(false);
+      }
     );
     return () => unsubscribe();
   }, []);

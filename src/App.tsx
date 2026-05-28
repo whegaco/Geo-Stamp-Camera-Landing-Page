@@ -23,11 +23,13 @@ const AboutUs = lazy(() => import('./pages/aboutUs'));
 const ContactUs = lazy(() => import('./pages/contactUs'));
 const Blog = lazy(() => import('./pages/blog'));
 const Article = lazy(() => import('./pages/article'));
+const AgentStamper = lazy(() => import('./pages/AgentStamper'));
 const Admin = lazy(() => import('./pages/admin/Admin'));
 const AdminArticles = lazy(() => import('./pages/admin/AdminArticles'));
 const AdminArticleEdit = lazy(() => import('./pages/admin/AdminArticleEdit'));
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
 const AdminLogs = lazy(() => import('./pages/admin/AdminLogs'));
+const AgentSEO = lazy(() => import('./pages/admin/AgentSEO'));
 
 export default function App() {
   return (
@@ -45,6 +47,9 @@ export default function App() {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<Article />} />
+              <Route path="/agent-stamper" element={<AgentStamper />} />
+              <Route path="/tools/geo-stamper" element={<AgentStamper />} />
+              <Route path="/geostamp" element={<AgentStamper />} />
               
               {/* Admin Routes */}
               <Route path="/admin" element={<Admin />} />
@@ -53,6 +58,7 @@ export default function App() {
               <Route path="/admin/articles/:id" element={<AdminArticleEdit />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
               <Route path="/admin/logs" element={<AdminLogs />} />
+              <Route path="/admin/agent-seo" element={<AgentSEO />} />
               
               <Route path="*" element={<Home />} />
             </Routes>

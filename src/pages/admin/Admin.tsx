@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AdminLayout from '../../components/admin/AdminLayout';
 import { collection, getCountFromServer, query, where } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../../lib/firebase';
-import { FileText, Eye, Activity } from 'lucide-react';
+import { FileText, Eye, Activity, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function AdminDashboard() {
@@ -58,17 +58,24 @@ export default function AdminDashboard() {
 
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
         <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to="/admin/articles/new"
-            className="flex items-center gap-2 px-6 py-3 bg-brand text-slate-950 font-bold rounded-xl hover:bg-brand-hover transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-brand text-slate-950 font-bold rounded-xl hover:bg-brand-hover transition-colors text-center justify-center"
           >
             <FileText className="w-5 h-5" />
             Create New Article
           </Link>
           <Link
+            to="/admin/agent-seo"
+            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors text-center justify-center"
+          >
+            <Sparkles className="w-5 h-5" />
+            AI SEO Agent
+          </Link>
+          <Link
             to="/admin/articles"
-            className="flex items-center gap-2 px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-700 transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-700 transition-colors text-center justify-center"
           >
             Manage Articles
           </Link>
