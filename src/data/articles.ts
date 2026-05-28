@@ -336,5 +336,74 @@ Dedicated documentation apps like [Geo-Stamp Camera](/) offer powerful, un-remov
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop',
     keywordsEn: 'copyright protection, watermarking, field photography, digital signature, authenticity, visual evidence, anti-forgery',
     keywordsAr: 'حقوق النشر, التوقيع الرقمي, التصوير الميداني, حماية الصور, العلامات المائية, مكافحة التزوير, الأدلة الفوتوغرافية'
+  },
+  {
+    id: 9,
+    slug: 'integrated-free-civil-engineering-tools-saudi-code-2026',
+    titleEn: 'Best Free Civil Engineering Tools: Materials Calculator, PDF Site Report Builder, and GPS Camera',
+    titleAr: 'أدوات المقاولات المجانية: حاسبة كميات البناء الذكية، صانع تقارير المعاينة PDF، وكاميرا GPS الكروكي',
+    excerptEn: 'Explore the definitive, integrated toolbox for site civil engineers and independent contractors. Completely free calculations, customized unit prices, and QA lists compliant with building codes.',
+    excerptAr: 'دليل شامل وموثق بأحدث الأدوات الرقمية للمواقع؛ تتبع جودة استلام البنود، حصر المواد وكميات صب الخرسانة بدقة، وإصدار تقارير معاينة ومطابقة جاهزة للطباعة.',
+    contentEn: `In modern engineering management, maintaining a dynamic operational flow means equipping your field engineers and administrators with precision tools. Standard spreadsheet workflows can introduce massive errors into your material logs, while generic photo-sharing lacks geographic validation. 
+
+Here is a complete breakdown of our professional, free digital toolkit designed for contractors and consultants to optimize their workflows:
+
+### **1. [Smart Construction Quantities Estimator](/tools/materials-calculator)**
+Calculating concrete volumes, estimating structural steel requirements in tons, and assessing masonry wall block demand should not rely on complex software setups. 
+* **Core Function:** Choose between building elements like [Concrete Slabs](/tools/materials-calculator), columns, foundations, plastering, and brick walls.
+* **Custom Variables:** Control the exact cement content index (kg/m³), safety wastage factor, and rebar weights.
+* **Live Pricing:** Override pricing metrics for sand, aggregate, cement bags, bricks, and steel bars according to your local supplier rates. Use our [Quantities Estimator](/tools/materials-calculator) today to plan budgets cleanly.
+
+### **2. [Professional Construction Quality checklists](/tools/materials-calculator)**
+Ensuring that structural elements follow strict quality standards prevents critical construction failures and delays.
+* **Core Function:** Step-by-step handover checkboxes for excavation, soil compaction, reinforcement overlap, bracing, and mechanical concrete vibrator preparation.
+* **Dynamic Audits:** Check status codes (Pass, Fail, Pending) and append direct engineering observation logs in real-time.
+* **Handover Readiness Metres:** Watch live overall compliance percentages adjust automatically. Perfect for client presentations. Access the [Quality Control Checklist](/tools/materials-calculator) here.
+
+### **3. [Automated PDF Inspection Report Builder](/tools/report-generator)**
+Stop spending hours typing Word summaries at the end of an exhausting inspection shift. Turn your mobile inputs into ready-to-print official client logs.
+* **Core Function:** Generate fully compliant A4 inspection reports using presets for civil works or occupational HSE safety.
+* **Details Embedded:** Features developer name, project titles, structured checklists, dynamic consultant signature fields, and a photo grid. Build your executive records directly using our [A4 Report Builder](/tools/report-generator).
+
+### **4. [Geodesic Watermark Stamper Camera](/tools/geo-stamper)**
+Build unalterable evidence for every structural milestone by burning validated geographic info directly onto your pixels.
+* **Core Function:** Burn coordinates, network-synced precise dates, custom project labels, and developer logos directly over the photos to comply with municipal guidelines (Balady). Start documenting immediately with the [GPS Stamper Camera](/tools/geo-stamper).
+
+Combining these free tools will elevate the professionalism, efficiency, and safety compliance of your entire contracting firm. Read our detailed guide on [Standardizing Daily Site Reports (DSRs)](/blog/how-to-standardize-daily-site-reports-dsr) or read our [Privacy Policy](/privacy) to see how securely we treat your local coordinates data.`,
+    contentAr: `في كواليس المقاولات وإدارة المواقع الهندسية الحديثة، يعتبر التحكم في نسب الخلطة الخرسانية وضبط جودة استلام حديد التسليح وبنود صب الأعمدة خطاً فاصلاً بين نجاح المشروع الهندسي أو تكبد غرامات وخسائر مالية فادحة. مع غياب اتصال الإنترنت في بعض المواقع النائية وصعوبة تشغيل البرامج الهندسية المعقدة (مثل الريفيت والاتوكاد) على الهواتف، يحتاج منسقو ومهندسو المواقع إلى أدوات ويب سريعة وسهلة الاستخدام لمعالجة المهام اليومية بكفاءة عالية.
+
+نستعرض معكم الدليل الكامل للبوابة الشاملة للأدوات الهندسية المجانية ١٠٠٪ التي تساعد الملاك، المقاولين، ومهندسي الاستشارات والبلديات على إنجاز الأعمال بسلاسة بالغة ومطابقة الكود الإنشائي:
+
+### **١. [حاسبة كميات البناء وتكلفة الهيكل الذكية](/tools/materials-calculator)**
+وداعاً للحسابات التقليدية ودفاتر الحصر الورقية المعقدة. تتيح لك الأداة حساب الكميات بدقة متناهية بمراعاة نسب الهدر والأمان:
+* **العناصر المدعومة:** احسب مباشرة مكعبات [البلاطات الخرسانية (الأسقف)](/tools/materials-calculator)، الأعمدة، القواعد المستقلة والمشتركة، أعمال المحارة واللياسة للجدران، وحصر عدد الطوب اليدوي والأوتوماتيكي.
+* **تعديل المعايير الفنية:** تحكم في محتوى الإسمنت لكل متر مكعب خرساني (٣٥٠ كجم كقيمة نموذجية) ووزن حديد التسليح ونسبة معامل الأمان (الفاقد والهدر الإضافي) لتجنب نقص الإمداد بأوقات الصب الحرجة.
+* **جدول التسعير المالي:** قم بتعديل ومطابقة أسعار المتر الرمل، طن الحديد الصافي، كيس الإسمنت الحقيقي، وألف طوبة جيرية أو إسمنتية للحصول على فاتورة مستخلص تقديرية مطابقة بنسبة ٩٨٪ للسوق المحلي.
+
+### **٢. [قوائم تفحص واستلام جودة السقف والخرسانة](/tools/materials-calculator)**
+إن إدارة الأعمال الهندسية ترتكز بالكامل على ثقافة نظام ضمان الجودة (QA/QC). لا تترك أي تفصيلة دقيقة للاجتهاد البشري أو النسيان الميداني:
+* **التغطية الشاملة:** قائمة فحص تفصيلية تغطي بنود الحفر، ردم التربة، اختبارات الدمك، ضبط الشدات الخشبية، اختبار مكعبات الخرسانة، واختبار هبوط القوام المائي (Slump Test).
+* **إدارة الملاحظات الفورية:** تحكم بالحالة (مطابق وجاهز للاستلام - مرفوض ويحتاج لتعديل - معلق قيد المعاينة) مع القدرة على كتابة الإرشادات والقرارات الهندسية المباشرة بجانب البند.
+* **عداد المطابقة الآلي:** يعرض لشركتك وللاستشاريين نسبة مئوية دقيقة لجاهزية المبنى الهيكلية لحل النزاعات التعاقدية سريعاً. ابدأ بإدارة أعمالك عبر [قائمة الجودة الحية](/tools/materials-calculator).
+
+### **٣. [صانع تقارير المعاينة والمطابقة بصيغة PDF](/tools/report-generator)**
+لم تعد مراجعة التقارير وحصر المشاكل تحتاج للانتظار والعودة للمكتب وبذل ساعات في صياغة ملفات Word. انقل العمل لجيبك:
+* **التخصيص الفوري:** اكتب بيانات المشروع، رقم التفتيش، اسم المهندس والفاحص، وارفع شعار شركتك (لوجو) بشكل منسق.
+* **صديق الطباعة A4:** صمم وجدول البنود، وارفق قالب توقيع رقمي معتمد يربط الصورة بالخرائط الحية، ثم قم بتصدير واستخراج تقرير احترافي ووثيقة قانونية PDF جاهزة للإرسال للمالك فوراً. جرب [صانع تقارير المعاينة الهندسي](/tools/report-generator) الآن.
+
+### **٤. [كاميرا الختم الجغرافي والبلدي الذكية](/tools/geo-stamper)**
+توثق صورك بكامل التفاصيل القانونية لمنع النزاعات بين أطراف المقاولة:
+* **أختام الموثوقية:** تدمج داخل الصورة إحداثيات الموقع الحقيقي (Latitude, Longitude)، اسم المشروع، ترويسة المهندس، والتوقيت والتقويم الفعلي المطابق لأبراج الاتصال لسلامة المستندات أمام الجهات الحكومية والبلديات (منصة بلدي). التقط صورة مدموغة الآن عبر [بوابة الكاميرا الجيوديسية](/tools/geo-stamper).
+
+إن دمج هذه المنظومة في نوبات العمل الميدانية للمقاولين يُحدث قفزة نوعية في الأرباح ويوفر مئات الساعات المهدرة شهرياً. لا تتردد في قراءة دليلنا حول [توحيد تقارير المواقع اليومية DSR](/blog/how-to-standardize-daily-site-reports-dsr)، كما يمكنك مراجعة [سياسة الخصوصية وأمان الإحداثيات](/privacy) للطمأنينة على بياناتك وممتلكات ومقاولات شركتك.`,
+    dateEn: 'May 28, 2026',
+    dateAr: '٢٨ مايو ٢٠٢٦',
+    authorEn: 'Editorial Team',
+    authorAr: 'فريق التحرير',
+    readTimeEn: '8 min read',
+    readTimeAr: '٨ دقائق قراءة',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
+    keywordsEn: 'civil engineering tools, concrete calculator, volume estimator, PDF reports, construction templates, QA checklists, Saudi building code, Saudi standard concrete mix, rebar weight estimator',
+    keywordsAr: 'حاسبة كميات البناء, حاسبة الخرسانة المسلحة, حساب طن الحديد بالسيخ, بنود استلام المهندس المدني, الكود السعودي للبناء, حصر الإسمنت والرمل, تقارير هندسية PDF, كاميرا تجربة كروكي, جيو ستامب طوب'
   }
 ];

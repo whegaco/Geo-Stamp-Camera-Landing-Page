@@ -74,7 +74,7 @@ export const translations = {
       q2: "هل يمكنني تخصيص شكل البيانات والختم في تقارير الـ PDF؟",
       a2: "نعم بالتأكيد! يتيح لك تطبيق Geo-Stamp تحكماً كاملاً في الختم المائي. يمكنك إضافة شعار شركتك (Logo)، اسم المشروع، اسم المهندس أو المفتش، وحتى إرفاق توقيعك الرقمي. كافة هذه التفاصيل ستنعكس بشكل تلقائي ومنسق واحترافي في تقارير الـ PDF المستخرجة.",
       q3: "هل التطبيق مجاني أم يتطلب اشتراكاً (ترخيص)؟",
-      a3: "يوفر التطبيق نسخة مجانية تتيح لك تجربة الميزات الأساسية للتوثيق الميداني والتقاط الصور مع الختم المائي. وللوصول غير المحدود للميزات الاحترافية (مثل استخراج تقارير PDF، وتصدير ملفات KML و CSV المتقدمة للربط مع Google Earth)، يمكنك الترقية إلى النسخة المدفوعة (برو) من داخل التطبيق.",
+      a3: "تطبيق ويب جيو ستامب وصانع التقارير الكروكي مفتوح بالكامل حالياً ومجاني ١٠٠٪ لجميع المستخدمين! يمكنك إصدار تقارير هندسية بصيغة PDF وختم الصور ببيانات GPS وإحداثيات دقيقة وتصدير ملفات KML مجاناً دون وجود علامات مائية أو حدود استخدام دعمًا للعمل الميداني.",
       q4: "هل تعمل الكاميرا في الأماكن التي لا توجد بها تغطية إنترنت؟",
       a4: "نعم، الكاميرا وحفظ الصور مع بيانات الـ GPS تعمل بشكل كامل دون الحاجة لاتصال بالإنترنت (Offline). ستحتاج للإنترنت فقط إذا أردت مشاركة التقارير أو تصديرها عبر تطبيقات التواصل أو البريد الإلكتروني."
     },
@@ -165,7 +165,7 @@ export const translations = {
       q2: "Can I customize the data format and stamp in PDF reports?",
       a2: "Yes, absolutely! Geo-Stamp gives you full control over the watermark. You can add your company logo, project name, engineer/inspector name, and even attach your digital signature. All these details will automatically reflect in a formatted and professional manner in the exported PDF reports.",
       q3: "Is the app free or does it require a subscription/license?",
-      a3: "The app offers a free version allowing you to experience the basic features of field documentation and capturing watermarked photos. For unlimited access to professional features (like PDF extraction, and advanced KML/CSV exports), you can upgrade to the pro version from within the app.",
+      a3: "The Geo-Stamp web application and report builder are currently 100% free and completely unlocked for everyone! You can generate unlimited high-fidelity PDF site compliance reports, download stamped images with precise GPS coordinates, and brand them with your custom logo for free with zero limitations.",
       q4: "Does the camera work in areas without internet coverage?",
       a4: "Yes, the camera and saving photos with GPS data work completely offline without needing an internet connection. You will only need the internet if you want to share reports or export them via messaging apps or email."
     },

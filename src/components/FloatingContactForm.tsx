@@ -45,7 +45,7 @@ export default function FloatingContactForm() {
   };
 
   return (
-    <div className="fixed bottom-6 rtl:left-6 ltr:right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-24 lg:bottom-6 rtl:left-6 ltr:right-6 z-40 lg:z-50 flex flex-col items-end">
       <AnimatePresence>
         {isOpen && (
           <motion.div

@@ -11,6 +11,7 @@ import BlurImage from '../components/BlurImage';
 import { collection, query, where, getDocs, limit } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { format } from 'date-fns';
+import { articles as localArticles } from '../data/articles';
 
 const TwitterIcon = () => (
   <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
@@ -169,6 +170,33 @@ export default function Article() {
         setLoading(false);
         return;
       }
+
+      // Check local files first
+      const foundLocal = localArticles.find(a => a.slug === slug);
+      if (foundLocal) {
+        setArticle({
+          id: `local-${foundLocal.id}`,
+          slug: foundLocal.slug,
+          titleEn: foundLocal.titleEn,
+          titleAr: foundLocal.titleAr,
+          excerptEn: foundLocal.excerptEn || '',
+          excerptAr: foundLocal.excerptAr || '',
+          contentEn: foundLocal.contentEn,
+          contentAr: foundLocal.contentAr,
+          date: foundLocal.dateEn || '2026-05-28',
+          authorEn: foundLocal.authorEn || 'Editor',
+          authorAr: foundLocal.authorAr || 'التحرير',
+          readTimeEn: foundLocal.readTimeEn || '5 min read',
+          readTimeAr: foundLocal.readTimeAr || '٥ دقائق قراءة',
+          image: foundLocal.image || '',
+          keywordsEn: foundLocal.keywordsEn || '',
+          keywordsAr: foundLocal.keywordsAr || '',
+          createdAt: 1779926402000
+        });
+        setLoading(false);
+        return;
+      }
+
       try {
         const q = query(collection(db, 'articles'), where('slug', '==', slug), limit(1));
         const snapshot = await getDocs(q);

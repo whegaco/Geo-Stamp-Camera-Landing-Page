@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { format } from 'date-fns';
+import { articles as localArticles } from '../data/articles';
 
 interface ArticleItem {
   id: string;
@@ -49,7 +50,35 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Map local static articles to match ArticleItem format
+    const mappedLocal: ArticleItem[] = localArticles.map((a, idx) => ({
+      id: `local-${a.id || idx}`,
+      slug: a.slug,
+      titleEn: a.titleEn,
+      titleAr: a.titleAr,
+      excerptEn: a.excerptEn,
+      excerptAr: a.excerptAr,
+      date: a.dateEn || '2026-05-28',
+      authorEn: a.authorEn || 'Editorial Team',
+      authorAr: a.authorAr || 'فريق التحرير',
+      readTimeEn: a.readTimeEn || '5 min read',
+      readTimeAr: a.readTimeAr || '٥ دقائق قراءة',
+      image: a.image || 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800',
+      createdAt: 1779926402000 - idx * 10000
+    }));
+
     const q = query(collection(db, 'articles'), orderBy('createdAt', 'desc'));
+    
+    const getArticleTime = (art: ArticleItem) => {
+      if (art.date) {
+        // Handle dates with non-standard characters just in case, but clean them
+        const cleanedDate = art.date.replace(/[\u0660-\u0669]/g, ''); // strip any accidentally mixed Arabic numerals
+        const t = Date.parse(cleanedDate);
+        if (!isNaN(t)) return t;
+      }
+      return art.createdAt || 0;
+    };
+
     const unsubscribe = onSnapshot(q, 
       (snapshot) => {
         const docs = snapshot.docs.map(doc => ({
@@ -57,16 +86,40 @@ export default function Blog() {
           ...doc.data()
         })) as ArticleItem[];
         
-        // Always include static geo-stamper guide at the top
-        const hasGuide = docs.some(d => d.slug === 'geo-stamper-guide');
-        const finalDocs = hasGuide ? docs : [staticGeoStamperBlogItem, ...docs];
-        setArticles(finalDocs);
+        // Merge & De-duplicate by slug
+        const combined = [staticGeoStamperBlogItem, ...mappedLocal, ...docs];
+        const uniqueBySlug: ArticleItem[] = [];
+        const seenSlugs = new Set<string>();
+
+        for (const item of combined) {
+          if (!seenSlugs.has(item.slug)) {
+            seenSlugs.add(item.slug);
+            uniqueBySlug.push(item);
+          }
+        }
+
+        // Sort by date desc, fallback to index order if times match
+        uniqueBySlug.sort((a, b) => getArticleTime(b) - getArticleTime(a));
+        
+        setArticles(uniqueBySlug);
         setLoading(false);
       },
       (error) => {
         handleFirestoreError(error, OperationType.LIST, 'articles');
-        // Load static guide on fallback error
-        setArticles([staticGeoStamperBlogItem]);
+        // Load static guide and local articles on fallback error and sort them too
+        const combinedFallback = [staticGeoStamperBlogItem, ...mappedLocal];
+        const uniqueBySlugFallback: ArticleItem[] = [];
+        const seenSlugsFallback = new Set<string>();
+
+        for (const item of combinedFallback) {
+          if (!seenSlugsFallback.has(item.slug)) {
+            seenSlugsFallback.add(item.slug);
+            uniqueBySlugFallback.push(item);
+          }
+        }
+
+        uniqueBySlugFallback.sort((a, b) => getArticleTime(b) - getArticleTime(a));
+        setArticles(uniqueBySlugFallback);
         setLoading(false);
       }
     );

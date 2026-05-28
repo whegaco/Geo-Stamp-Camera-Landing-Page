@@ -95,10 +95,6 @@ export default function AgentStamper() {
   };
 
   const incrementUsage = (): boolean => {
-    if (usageCount >= 3) {
-      setShowLimitModal(true);
-      return false;
-    }
     const newCount = usageCount + 1;
     setUsageCount(newCount);
     localStorage.setItem('free_geo_stamp_uses', String(newCount));
@@ -342,10 +338,6 @@ export default function AgentStamper() {
 
   const analyzeImage = async () => {
     if (!file) return;
-    if (usageCount >= 3) {
-      setShowLimitModal(true);
-      return;
-    }
     
     try {
       setIsAnalyzing(true);
@@ -385,10 +377,6 @@ export default function AgentStamper() {
 
   const downloadImage = () => {
     if (!canvasRef.current || !isCanvasReady) return;
-    if (usageCount >= 3) {
-      setShowLimitModal(true);
-      return;
-    }
 
     const dataUrl = canvasRef.current.toDataURL('image/jpeg', 0.95);
     const link = document.createElement('a');
@@ -457,9 +445,9 @@ export default function AgentStamper() {
           </p>
           
           {/* Quick Counter Reminder */}
-          <div className="mt-4 inline-flex items-center gap-2 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full">
-            <span>التجربة السريعة المتبقية للجهاز:</span>
-            <span className="font-bold text-brand">{Math.max(0, 3 - usageCount)} من 3 مرات مجانية</span>
+          <div className="mt-4 inline-flex items-center gap-2 text-xs text-emerald-400 bg-emerald-950/20 border border-emerald-500/30 px-4 py-1.5 rounded-full font-bold">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>بوابة الويب مفعلة مجانًا بالكامل: استخدام غير محدود مع كامل الميزات الفنية</span>
           </div>
         </div>
 
@@ -768,11 +756,11 @@ export default function AgentStamper() {
 
             <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 hover:border-slate-700 transition-colors">
               <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 هل الخدمة مجانية بالكامل؟
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                نعم! نحن نتيح تجربة استخدام سريعة ومجانية حتى ٣ صور يومياً لكل زائر عبر المتصفح بدون تحميل برامج. لفتح حدود الاستخدام وتأمين مزايا غير محدودة كلياً، ننصح بتنزيل تطبيقنا الهاتفي الأساسي.
+                نعم، الخدمة مفتوحة بالكامل ومجانية ١٠٠٪ حالياً لجميع الزوار عبر المتصفح! يمكنك ختم وتوثيق عدد غير محدود من الصور ورفع شعار شركتك ومطابقة تقارير الـ GPS دون أي قيود أو رسوم دعمًا لقطاع المقاولات والهندسة.
               </p>
             </div>
 

@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense, useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingContactForm from './components/FloatingContactForm';
+import FloatingNav from './components/FloatingNav';
 import { AuthProvider } from './context/AuthContext';
 import { trackEvent } from './lib/firebase';
 
@@ -24,12 +25,15 @@ const ContactUs = lazy(() => import('./pages/contactUs'));
 const Blog = lazy(() => import('./pages/blog'));
 const Article = lazy(() => import('./pages/article'));
 const AgentStamper = lazy(() => import('./pages/AgentStamper'));
+const ReportGenerator = lazy(() => import('./pages/reportGenerator'));
+const MaterialsCalculator = lazy(() => import('./pages/materialsCalculator'));
 const Admin = lazy(() => import('./pages/admin/Admin'));
 const AdminArticles = lazy(() => import('./pages/admin/AdminArticles'));
 const AdminArticleEdit = lazy(() => import('./pages/admin/AdminArticleEdit'));
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
 const AdminLogs = lazy(() => import('./pages/admin/AdminLogs'));
 const AgentSEO = lazy(() => import('./pages/admin/AgentSEO'));
+const ToolsDirectory = lazy(() => import('./pages/toolsDirectory'));
 
 export default function App() {
   return (
@@ -48,8 +52,14 @@ export default function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<Article />} />
               <Route path="/agent-stamper" element={<AgentStamper />} />
+              <Route path="/tools" element={<ToolsDirectory />} />
+              <Route path="/all-tools" element={<ToolsDirectory />} />
               <Route path="/tools/geo-stamper" element={<AgentStamper />} />
               <Route path="/geostamp" element={<AgentStamper />} />
+              <Route path="/tools/report-generator" element={<ReportGenerator />} />
+              <Route path="/tools/report-builder" element={<ReportGenerator />} />
+              <Route path="/tools/materials-calculator" element={<MaterialsCalculator />} />
+              <Route path="/tools/calculator" element={<MaterialsCalculator />} />
               
               {/* Admin Routes */}
               <Route path="/admin" element={<Admin />} />
@@ -64,6 +74,7 @@ export default function App() {
             </Routes>
           </Suspense>
           <FloatingContactForm />
+          <FloatingNav />
         </Router>
       </AuthProvider>
     </HelmetProvider>

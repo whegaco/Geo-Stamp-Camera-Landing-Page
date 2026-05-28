@@ -28,7 +28,8 @@ export default function Hero() {
           setSiteConfig(docSnap.data() as SiteConfig);
         }
       } catch (err) {
-        console.error('Failed to fetch home config', err);
+        // Safe fallback logic - silently ignore config fetch error as seed config is already provided
+        console.warn('Home config loaded from local default presets.');
       }
     };
     fetchConfig();

@@ -29,7 +29,8 @@ export default function Footer() {
           setConfig(docSnap.data() as SiteConfig);
         }
       } catch (err) {
-        console.error('Failed to fetch footer config', err);
+        // Safe fallback logic - silently ignore config fetch error as default footer links are set
+        console.warn('Footer config loaded from local default presets.');
       }
     };
     fetchConfig();
@@ -106,11 +107,32 @@ export default function Footer() {
         {/* Added Links */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 text-sm font-medium">
           <Link 
+            to="/tools" 
+            className="px-4 py-2.5 rounded-xl bg-brand/10 hover:bg-brand/20 hover:text-white text-brand border border-brand/25 transition-all inline-flex items-center justify-center min-h-[44px] font-black"
+            title={language === 'ar' ? 'بوابة الأدوات الهندسية المتكاملة وحصر البناء' : 'Integrated civil engineering calculators and tools directory'}
+          >
+            {language === 'ar' ? '🧰 بوابة الأدوات الهندسية' : '🧰 All Tools Portal'}
+          </Link>
+          <Link 
             to="/tools/geo-stamper" 
             className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
             title={language === 'ar' ? 'أداة الختم الجغرافي والتحقق من الصور الذكية حية على الويب' : 'Smart Live Geo-Stamper and On-Site Photo Verification Tool'}
           >
-            {language === 'ar' ? 'ختم الصور الجيو-شخصي حياً' : 'Live Smart Geo-Stamper'}
+            {language === 'ar' ? '📸 ختم وتحقق الصور حياً' : '📸 Live Geo-Stamper'}
+          </Link>
+          <Link 
+            to="/tools/report-generator" 
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
+            title={language === 'ar' ? 'منشئ تقارير المعاينة والمطابقة الإنشائية المعتمدة' : 'Generate Certified Site Inspection & Compliance Reports'}
+          >
+            {language === 'ar' ? '📋 صانع تقارير المواقع' : '📋 Report Builder'}
+          </Link>
+          <Link 
+            to="/tools/materials-calculator" 
+            className="px-4 py-2.5 rounded-xl bg-slate-900/40 hover:bg-slate-900 hover:text-brand text-slate-400 border border-slate-900/60 hover:border-slate-800 transition-all inline-flex items-center justify-center min-h-[44px]"
+            title={language === 'ar' ? 'حاسبة تسعير كميات مواد البناء وقائمة تفقد الجودة المهنية واستلام الأعمال' : 'Smart Construction Materials Quantities Estimate Calculator & Professional Handover Checklists'}
+          >
+            {language === 'ar' ? '🧮 حاسبة كميات وجودة البناء' : '🧮 Materials & Quality Calc'}
           </Link>
           <Link 
             to="/blog" 

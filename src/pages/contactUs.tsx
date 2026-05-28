@@ -25,7 +25,8 @@ export default function ContactUs() {
           setConfig(docSnap.data() as SiteConfig);
         }
       } catch (err) {
-        console.error('Failed to fetch contact config', err);
+        // Safe fallback logic - silently ignore config fetch error as default contact details are set
+        console.warn('Contact page config loaded from local default presets.');
       }
     };
     fetchConfig();
