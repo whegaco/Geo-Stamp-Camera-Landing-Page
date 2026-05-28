@@ -65,11 +65,9 @@ service cloud.firestore {
     match /config/{configId} {
       allow read: if true; // Public read
       allow create: if isAdmin()
-        && isValidPageConfig(incoming())
-        && incoming().updatedAt == request.time.toMillis();
+        && isValidPageConfig(incoming());
       allow update: if isAdmin()
-        && isValidPageConfig(incoming())
-        && incoming().updatedAt == request.time.toMillis();
+        && isValidPageConfig(incoming());
       allow delete: if isAdmin();
     }
   }
