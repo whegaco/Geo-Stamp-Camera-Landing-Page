@@ -13,7 +13,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/|robots\\.txt|sitemap\\.xml|ads\\.txt|manifest\\.json|sw\\.js|offline\\.html|favicon\\.svg|assets/).*)",
       "destination": "/index.html"
     }
   ]

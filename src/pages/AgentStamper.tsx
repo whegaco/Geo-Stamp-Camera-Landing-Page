@@ -414,7 +414,7 @@ export default function AgentStamper() {
         <title>أداة جيو ستامب حياً | تصوير بالتاريخ والوقت وموقع gps ووضع لوجو المشروع علي الصور</title>
         <meta name="description" content="جرب مجاناً أقوى أداة ويب لتصوير بالتاريخ والوقت وموقع gps (جي بي اس) مع إمكانية وضع لوجو المشروع علي الصور مائياً واستخراج تفاصيل EXIF GPS تلقائياً للمهندسين والمقاولين." />
         <meta name="keywords" content="وضع لوجو المشروع علي الصور, تصوير بالتاريخ والوقت وموقع gps, جي بي اس, ختم صور البناء, جيو ستامب اونلاين, استخراج EXIF GPS, ختم الصور الهندسية مجانا, توثيق المقاولات, كاميرا ختم الموقع" />
-        <link rel="canonical" href="https://geostampcamera.com/tools/geo-stamper" />
+        <link rel="canonical" href="https://geo-stamp-camera.vercel.app/tools/geo-stamper" />
         
         {/* OpenGraph & Social Cards */}
         <meta property="og:title" content="أداة جيو ستامب - تصوير بالتاريخ والوقت وموقع gps ميكانيكياً" />
