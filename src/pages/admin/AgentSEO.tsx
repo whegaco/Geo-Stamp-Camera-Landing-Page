@@ -298,24 +298,59 @@ export default function AgentSEO() {
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Globe className="text-blue-500 w-6 h-6" />
-              تنبيه محركات البحث (Pinging)
+              <Globe className="text-emerald-500 w-6 h-6" />
+              الأرشفة الآمنة والمتوافقة (Safe SEO Indexing)
             </h3>
-            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              استخدم هذه الأداة لإرسال "إشعار" لمحركات البحث (مثل Google و Bing) بأن خريطة الموقع قد تم تحديثها، 
-              مما يسرع من عملية أرشفة الصفحات الجديدة بطريقة آلية وسريعة.
-            </p>
-            <button
-              onClick={pingSearchEngines}
-              disabled={isPinging}
-              className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
-            >
-              {isPinging ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-              أرسل إشعار الزحف الآن
-            </button>
             
-            <div className="mt-6 p-4 bg-blue-900/20 border border-blue-900/50 rounded-xl text-blue-200 text-sm">
-              <strong>معلومة:</strong> عادة ما تستجيب محركات البحث لهذا الإشعار عن طريق إضافة موقعك إلى طابور الزحف. يمكنك مراقبة الزيارات من خلال تبويب "متابعة الزحف".
+            <div className="p-4 bg-amber-950/30 border border-amber-500/20 rounded-xl text-amber-200 text-xs mb-6 space-y-2 leading-relaxed">
+              <strong className="text-amber-400 block text-sm">💡 تنبيه توافقية محركات البحث (محدث لعام 2024-2026):</strong>
+              <p>
+                قامت شركة <strong>Google</strong> بإيقاف وإلغاء بروتوكول البنج التقليدي لخرائط المواقع 
+                <code className="bg-slate-950 px-1 py-0.5 rounded text-red-400 font-mono text-[10px] mx-1">ping?sitemap=</code> 
+                من خوادمها رسمياً لمكافحة السبام، وتبعها في ذلك محرك <strong>Bing</strong>.
+              </p>
+              <p>
+                استمرار إرسال طلبات Ping متكررة عبر البرمجيات قد يؤدي إلى تصنيف خادمك كـ "ممرر لطلبات عشوائية" وتعريض الرابط لعقوبات الأرشفة.
+              </p>
+            </div>
+
+            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+              لتسريع الأرشفة بنسبة 100% وبطريقة رسمية آمنة دون أي مخاطر أو عقوبات، يرجى تتبع الخطوات الفعالة التالية:
+            </p>
+
+            <ul className="space-y-4 text-xs font-semibold text-slate-300">
+              <li className="flex gap-3 items-start bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 font-bold">1</span>
+                <div>
+                  <p className="font-bold text-white mb-1">الربط التلقائي بملف التوجيه (نشط ومثالي)</p>
+                  <p className="text-slate-500 leading-normal">يحتوي ملف <code className="text-brand font-mono">robots.txt</code> الخاص بك على مسار الخريطة الفعلي. هذا يعني أن العناكب ستعثر عليه تلقائياً فور زيارتها للموقع.</p>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 font-bold">2</span>
+                <div>
+                  <p className="font-bold text-white mb-1">أداة مشرفي المواقع من جوجل (Google Search Console)</p>
+                  <p className="text-slate-500 leading-normal">قم بإضافة موقعك وتأكيد ملكيته، ثم اذهب لقسم السايتماب وقدّم الرابط <code className="text-brand font-mono">https://geo-stamp-camera.vercel.app/sitemap.xml</code> يدوياً لمرة واحدة.</p>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 font-bold">3</span>
+                <div>
+                  <p className="font-bold text-white mb-1">أدوات مشرفي المواقع من بينج (Bing Webmaster Tools)</p>
+                  <p className="text-slate-500 leading-normal">استخدم حسابك لرفع خريطة الموقع، مما يضمن أرشفة صفحاتك في محركات بحث Bing و Yahoo يدوياً وبصورة آمنة تماماً.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div className="mt-6 pt-4 border-t border-slate-800">
+              <button
+                onClick={pingSearchEngines}
+                disabled={isPinging}
+                className="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-3 rounded-xl font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isPinging ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
+                طلب فحص حالة توافقية الخادم وأرشفة السايتماب
+              </button>
             </div>
           </div>
         </div>

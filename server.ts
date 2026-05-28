@@ -72,6 +72,9 @@ async function startServer() {
   app.get('/robots.txt', (req, res) => {
     const domain = 'https://geo-stamp-camera.vercel.app';
     const robotsContent = `User-agent: *
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/*
 Allow: /
 Sitemap: ${domain}/sitemap.xml`;
     res.type('text/plain');
@@ -146,22 +149,10 @@ Sitemap: ${domain}/sitemap.xml`;
   });
 
   app.post('/api/admin/ping-engines', async (req, res) => {
-    const domain = 'https://geo-stamp-camera.vercel.app';
-    const sitemapUrl = `${domain}/sitemap.xml`;
-    
-    try {
-      const googleUrl = `http://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
-      const bingUrl = `http://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
-      
-      // Ping background process
-      fetch(googleUrl).catch(e => console.error('Google Ping Error:', e));
-      fetch(bingUrl).catch(e => console.error('Bing Ping Error:', e));
-      
-      res.json({ success: true, message: `تم إرسال إشعار الزحف بنجاح إلى جوجل وبينج للرابط: ${sitemapUrl}` });
-    } catch (err) {
-      console.error("Ping error", err);
-      res.status(500).json({ error: 'فشل إرسال الإشعار' });
-    }
+    res.json({ 
+      success: false, 
+      message: 'تم إيقاف خدمة البنج المباشر تماشياً مع تحديثات جوجل (ديسمبر 2023) وبنج، لتفادي أي عقوبات أو استهلاك غير مجدي لموارد الخادم.' 
+    });
   });
 
   // Gemini Setup

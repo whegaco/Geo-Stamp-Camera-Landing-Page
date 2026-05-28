@@ -1,5 +1,7 @@
 user-agent: *
-allow: /
 disallow: /admin
+disallow: /admin/
+disallow: /admin/*
+allow: /
 
 sitemap: https://geo-stamp-camera.vercel.app/sitemap.xml
