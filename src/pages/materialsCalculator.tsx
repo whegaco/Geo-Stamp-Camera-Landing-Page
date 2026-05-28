@@ -256,7 +256,7 @@ export default function MaterialsCalculator() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Banner with modern tech elements */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 print:hidden">
           <span className="inline-flex items-center gap-1 px-3 py-1 bg-brand/10 border border-brand/20 text-brand rounded-full text-xs font-bold uppercase tracking-wider mb-4 animate-pulse">
             <Sparkles className="w-3.5 h-3.5" />
             {language === 'ar' ? 'أدوات تخطيط المواقع والأعمال الميدانية لعام ٢٠٢٦' : 'Site Planning & Field Operability Suite 2026'}
@@ -301,7 +301,7 @@ export default function MaterialsCalculator() {
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
             >
               {/* Form panel controls */}
-              <div className="lg:col-span-5 space-y-6">
+              <div className="lg:col-span-5 space-y-6 print:hidden">
                 
                 {/* Element style selector */}
                 <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
@@ -572,7 +572,7 @@ export default function MaterialsCalculator() {
               </div>
 
               {/* Calculator Results view */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-7 space-y-6 print:w-full print:col-span-12 print:block">
                 
                 {/* Visual dashboard indicator cards */}
                 <div className="bg-slate-900 border border-slate-850 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between">
@@ -684,7 +684,7 @@ export default function MaterialsCalculator() {
                   </div>
 
                   {/* Print / Save button indicator */}
-                  <div className="flex gap-3 mt-6 justify-end">
+                  <div className="flex gap-3 mt-6 justify-end print:hidden">
                     <button
                       onClick={() => window.print()}
                       className="flex items-center gap-1.5 px-4 py-2.5 bg-slate-800 hover:bg-slate-705 text-xs text-slate-200 font-bold rounded-xl transition-all"
@@ -730,7 +730,7 @@ export default function MaterialsCalculator() {
             >
               
               {/* Inspection progress board stats & filter sidebar */}
-              <div className="lg:col-span-4 space-y-6">
+              <div className="lg:col-span-4 space-y-6 print:hidden">
                 
                 {/* Handover live meter */}
                 <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4 block">
@@ -828,9 +828,9 @@ export default function MaterialsCalculator() {
               </div>
 
               {/* Main Checklist logs table */}
-              <div className="lg:col-span-8 space-y-4">
+              <div className="lg:col-span-8 space-y-4 print:w-full print:col-span-12 print:block">
                 
-                <div className="flex justify-between items-center bg-slate-900 border border-slate-800 px-5 py-3 rounded-xl">
+                <div className="flex justify-between items-center bg-slate-900 border border-slate-800 px-5 py-3 rounded-xl print:hidden">
                   <div className="flex items-center gap-2">
                     <Activity className="w-4 h-4 text-brand animate-spin" />
                     <span className="text-xs text-slate-300 font-bold">
@@ -926,7 +926,7 @@ export default function MaterialsCalculator() {
                 </div>
 
                 {/* Print/Export sheet summary card */}
-                <div className="bg-gradient-to-r from-slate-900 to-indigo-950/20 p-6 rounded-2xl border border-slate-800 flex flex-wrap justify-between items-center gap-4">
+                <div className="bg-gradient-to-r from-slate-900 to-indigo-950/20 p-6 rounded-2xl border border-slate-800 flex flex-wrap justify-between items-center gap-4 print:hidden">
                   <div>
                     <h4 className="text-sm font-black text-white">{language === 'ar' ? 'طباعة تقرير الفحص ومطابقة الاستلام' : 'Print inspection compliance sheet'}</h4>
                     <p className="text-xs text-slate-400 mt-1">{language === 'ar' ? 'توليد ملف كروكي ورقي معتمد بختم وتواقيع المقاول مباشرة.' : 'Export layout formatted checklist sheets with signatures.'}</p>

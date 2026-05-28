@@ -635,7 +635,7 @@ export default function ReportGenerator() {
           </div>
 
           {/* Right panel: Gorgeous live preview of A4 printable report */}
-          <div className="lg:col-span-7 space-y-4 lg:sticky lg:top-24">
+          <div className="lg:col-span-7 space-y-4 lg:sticky lg:top-24 print:w-full print:col-span-12 print:block print:p-0">
             
             {/* Header Control for PDF download/Print */}
             <div className="flex flex-wrap justify-between items-center bg-slate-900 border border-slate-800 px-4 py-3 rounded-xl sm:rounded-2xl gap-3 print:hidden">

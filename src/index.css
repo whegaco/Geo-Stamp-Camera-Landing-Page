@@ -128,3 +128,70 @@ html[lang="ar"] .custom-prose blockquote {
   border-left: none;
   border-right: 4px solid var(--color-brand);
 }
+
+/* --- Professional Print Optimization --- */
+@media print {
+  /* Force exact background colors/images for checklist states and badges */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* 1. Strictly hide all fixed/absolute floating navigations, chat bubbles, buttons, and overlays */
+  .fixed,
+  .print\:hidden,
+  .print-hidden,
+  iframe,
+  header,
+  footer,
+  aside,
+  button,
+  #desktop-nav-cta-contact,
+  [id^="mobile-nav-"],
+  [id^="desktop-nav-"],
+  [class*="z-[99"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* 2. Format body canvas for physical A4 layout print */
+  body, html {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Expand printable container to consume exact page edges cleanly */
+  #printable-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* 3. Handle page breaks elegantly to avoid clipping content or pictures */
+  img, 
+  tr, 
+  table,
+  .page-break-avoid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+}
+
