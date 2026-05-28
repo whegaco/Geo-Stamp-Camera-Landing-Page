@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingContactForm from './components/FloatingContactForm';
 import FloatingNav from './components/FloatingNav';
+import PWAInstaller from './components/PWAInstaller';
 import { AuthProvider } from './context/AuthContext';
 import { trackEvent } from './lib/firebase';
 
@@ -75,6 +76,7 @@ export default function App() {
           </Suspense>
           <FloatingContactForm />
           <FloatingNav />
+          <PWAInstaller />
         </Router>
       </AuthProvider>
     </HelmetProvider>

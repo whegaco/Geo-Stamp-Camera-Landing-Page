@@ -70,7 +70,7 @@ async function startServer() {
 
   // --- SEO & Indexing Tools ---
   app.get('/robots.txt', (req, res) => {
-    const domain = req.protocol + '://' + req.get('host');
+    const domain = 'https://geo-stamp-camera.vercel.app';
     const robotsContent = `User-agent: *
 Allow: /
 Sitemap: ${domain}/sitemap.xml`;
@@ -79,7 +79,7 @@ Sitemap: ${domain}/sitemap.xml`;
   });
 
   app.get('/sitemap.xml', async (req, res) => {
-    const domain = req.protocol + '://' + req.get('host');
+    const domain = 'https://geo-stamp-camera.vercel.app';
     
     // Static Routes
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -146,7 +146,7 @@ Sitemap: ${domain}/sitemap.xml`;
   });
 
   app.post('/api/admin/ping-engines', async (req, res) => {
-    const domain = req.protocol + '://' + req.get('host');
+    const domain = 'https://geo-stamp-camera.vercel.app';
     const sitemapUrl = `${domain}/sitemap.xml`;
     
     try {

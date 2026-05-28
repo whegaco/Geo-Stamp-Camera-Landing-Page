@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo-Stamp | أنت غير متصل بالإنترنت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: #0f172a;
+      --brand: #C6FF00;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Cairo', 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      background: var(--card-bg);
+      border: 1px solid rgba(198, 255, 0, 0.1);
+      border-radius: 24px;
+      padding: 40px 30px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .icon-container {
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: rgba(198, 255, 0, 0.05);
+      border: 1px solid rgba(198, 255, 0, 0.2);
+      color: var(--brand);
+      position: relative;
+    }
+
+    .pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--brand);
+      animation: ripple 2s infinite ease-out;
+      opacity: 0.5;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--brand);
+      color: #000;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      background: #b3e600;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(198, 255, 0, 0.25);
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+    }
+
+    .offline-utility {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 24px;
+      text-align: right;
+      border: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    .offline-utility h3 {
+      font-size: 14px;
+      color: var(--brand);
+      margin-bottom: 8px;
+    }
+
+    .offline-calc-input {
+      background: #020617;
+      border: 1px solid #1e293b;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: #fff;
+      width: 100%;
+      margin-bottom: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .offline-calc-result {
+      font-size: 13px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-container">
+      <div class="pulse"></div>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.5M5 12.5a10.94 10.94 0 0 1 5.83-2.84M8.53 16.03a6 6 0 0 1 7 0M12 20h.01"/>
+      </svg>
+    </div>
+
+    <h1>أنت خارج التغطية حالياً</h1>
+    <p>لقد انقطع الاتصال بالإنترنت. تطبيق Geo-Stamp Camera متكامل ومصمم هندسياً للعمل أوفلاين بالكامل! يمكنك الاستمرار في استخدام الكاميرا وأدوات حساب الكميات، وسنقوم بمزامنة بياناتك فور عودة الاتصال.</p>
+
+    <button onclick="window.location.reload()" class="btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
+        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+      </svg>
+      إعادة المحاولة
+    </button>
+
+    <!-- Interactive Offline Quick Assistant for Civil/Site Engineers -->
+    <div class="offline-utility">
+      <h3>🧮 حاسبة خرسانية طارئة (أوفلاين)</h3>
+      <p style="margin-bottom: 10px; font-size: 12px; color: var(--text-muted);">لتقدير حجم الخرسانة المطلوب سريعاً بدون شبكة:</p>
+      <input type="number" id="offArea" placeholder="المساحة بالمتر المربع (م٢)" class="offline-calc-input" oninput="calculateOfflineConcrete()">
+      <input type="number" id="offDepth" placeholder="السُمك بالمتر (مثال: 0.20)" class="offline-calc-input" oninput="calculateOfflineConcrete()">
+      <div class="offline-calc-result" id="offResult">يرجى إدخال البيانات للبدء</div>
+    </div>
+
+    <div class="footer-note">
+      <p style="margin:0; font-size: 11px;">Geo-Stamp Camera — Professional Field Assistant</p>
+    </div>
+  </div>
+
+  <script>
+    function calculateOfflineConcrete() {
+      const area = parseFloat(document.getElementById('offArea').value) || 0;
+      const depth = parseFloat(document.getElementById('offDepth').value) || 0;
+      const resultDiv = document.getElementById('offResult');
+      
+      if (area > 0 && depth > 0) {
+        const volume = (area * depth).toFixed(2);
+        const cement = (volume * 0.350).toFixed(2); // ~350kg/m3
+        resultDiv.innerHTML = `حجم الخرسانة: <span style="color:#C6FF00">${volume} م٣</span><br>الأسمنت التقريبي: <span style="color:#C6FF00">${cement} طن</span>`;
+      } else {
+        resultDiv.innerHTML = 'يرجى إدخال قيم صحيحة للمساحة والسُمك';
+      }
+    }
+  </script>
+</body>
+</html>
