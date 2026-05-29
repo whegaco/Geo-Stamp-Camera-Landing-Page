@@ -1,17 +1,16 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
 // Vite is imported dynamically below in development mode
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, orderBy, query } from 'firebase/firestore';
 import fs from 'fs';
-import { articles } from './src/data/articles';
+import { articles } from './src/data/articles.js';
 
 dotenv.config();
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 // Initialize Firebase for Server
 let firebaseConfig;

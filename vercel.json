@@ -46,7 +46,7 @@
   "rewrites": [
     {
       "source": "/((?!assets/|images/|manifest\\.json$|favicon\\..*|sw\\.js$|offline\\.html$|ads\\.txt$|sitemap\\.xml$|robots\\.txt$).*)",
-      "destination": "/api"
+      "destination": "/api/index"
     }
   ]
 }
