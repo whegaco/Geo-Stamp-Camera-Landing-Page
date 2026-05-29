@@ -40,7 +40,11 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml$|robots\\.txt$|favicon\\..*|assets/|images/|manifest\\.json$|sw\\.js$|offline\\.html$|ads\\.txt$).*)",
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]

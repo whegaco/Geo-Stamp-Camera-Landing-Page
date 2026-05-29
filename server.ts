@@ -25,10 +25,10 @@ try {
 const firebaseApp = firebaseConfig ? initializeApp(firebaseConfig) : null;
 const db = firebaseApp ? getFirestore(firebaseApp) : null;
 
-async function startServer() {
-  const app = express();
-  const PORT = 3000;
+export const app = express();
+const PORT = 3000;
 
+async function setupServer() {
   app.use(express.json({ limit: '50mb' }));
 
   // --- Bot Crawl Tracker Setup ---
@@ -487,10 +487,16 @@ Format in Markdown. Include a catchy title, introduction, main body paragraphs w
       }
     });
   }
-
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
-  });
 }
 
-startServer();
+setupServer().then(() => {
+  if (process.env.VERCEL) {
+    console.log("Vercel environment detected. App is exported for serverless.");
+  } else {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://0.0.0.0:${PORT}`);
+    });
+  }
+});
+
+export default app;
