@@ -282,35 +282,33 @@ export default function Article() {
         url={`/blog/${article.slug}`} 
         image={article.image}
       />
-      <Helmet htmlAttributes={{ lang: language }}>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": shareUrl
-            },
-            "headline": title,
-            "description": description,
-            "image": article.image || 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
-            "author": {
-              "@type": "Person",
-              "name": author,
-              "url": "https://geo-stamp-camera.vercel.app/about"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Geo-Stamp Camera",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://geo-stamp-camera.vercel.app/favicon.svg"
-              }
-            },
-            "datePublished": article.createdAt ? new Date(article.createdAt).toISOString() : new Date().toISOString(),
-            "dateModified": article.createdAt ? new Date(article.createdAt).toISOString() : new Date().toISOString()
-          })}
-        </script>
+      <Helmet>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": shareUrl
+          },
+          "headline": title,
+          "description": description,
+          "image": article.image || 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
+          "author": {
+            "@type": "Person",
+            "name": author,
+            "url": "https://geo-stamp-camera.vercel.app/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Geo-Stamp Camera",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://geo-stamp-camera.vercel.app/favicon.svg"
+            }
+          },
+          "datePublished": article.createdAt ? new Date(article.createdAt).toISOString() : new Date().toISOString(),
+          "dateModified": article.createdAt ? new Date(article.createdAt).toISOString() : new Date().toISOString()
+        }) }} />
       </Helmet>
       <Navbar />
 

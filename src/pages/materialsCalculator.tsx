@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -109,7 +109,7 @@ export default function MaterialsCalculator() {
   const calculatedResults = useMemo(() => {
     let volume = 0; // m³
     let bricksCount = 0;
-    let cementRatioAdj = cementRatio / 50; // bags per m³
+    const cementRatioAdj = cementRatio / 50; // bags per m³
     
     let cementNeeded = 0; // bags
     let sandNeeded = 0; // m³
@@ -243,7 +243,7 @@ export default function MaterialsCalculator() {
   }, [checklist, filterCategory]);
 
   return (
-    <main className="min-h-screen bg-slate-950 font-sans antialiased text-white pb-20 pt-28">
+    <main className="min-h-screen bg-slate-950 font-sans antialiased text-white pb-20 pt-28 print:bg-white print:text-black print:p-0">
       <SEO 
         title={language === 'ar' ? 'حاسبة كميات البناء وقائمة تفقد الجودة الهندسية' : 'Smart Construction Calculator & QA checklist App'}
         description={language === 'ar' ? 'أداة هندسية تفاعلية مجانية لحساب تسعير وكميات الإسمنت والحديد والخرسانة والطوب مع بنود فحص جودة استلام الأعمال الإنشائية.' : 'Free interactive quantities estimation tool for building concrete, steel, plastering & bricks with on-site QA inspection checklists.'}
@@ -251,7 +251,9 @@ export default function MaterialsCalculator() {
         url="/tools/materials-calculator"
       />
 
-      <Navbar />
+      <div className="print:hidden">
+        <Navbar />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
@@ -575,7 +577,7 @@ export default function MaterialsCalculator() {
               <div className="lg:col-span-7 space-y-6 print:w-full print:col-span-12 print:block">
                 
                 {/* Visual dashboard indicator cards */}
-                <div className="bg-slate-900 border border-slate-850 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div className="bg-slate-900 border border-slate-850 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between print:bg-white print:border-slate-300 print:shadow-none print:text-black">
                   <div className="absolute top-0 right-0 p-8 w-60 h-60 bg-brand/5 blur-3xl rounded-full" />
                   
                   <div className="flex justify-between items-center pb-4 border-b border-slate-800/80">
@@ -596,55 +598,55 @@ export default function MaterialsCalculator() {
                   {/* Quantity breakdowns grid */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6">
                     {/* Cement bags */}
-                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                       <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'الإسمنت المطلوب' : 'Cement Bags'}</span>
-                      <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.cementBags}</span>
+                      <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.cementBags}</span>
                       <span className="text-[10px] text-slate-400 block mt-0.5">{language === 'ar' ? 'كيس (زنة ٥٠كجم)' : 'Bags (50kg)'}</span>
                     </div>
 
                     {/* Steel Tons */}
                     {calcType !== 'brick' && calcType !== 'plaster' && (
-                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'حديد التسليح' : 'Reinforcing steel'}</span>
-                        <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.steelTons}</span>
+                        <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.steelTons}</span>
                         <span className="text-[10px] text-slate-400 block mt-0.5">{language === 'ar' ? 'طن حديد' : 'Tons'}</span>
                       </div>
                     )}
 
                     {/* Bricks count */}
                     {calcType === 'brick' && (
-                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'عدد البلوك / الطوب' : 'Mortar Bricks'}</span>
-                        <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.bricksCount}</span>
+                        <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.bricksCount}</span>
                         <span className="text-[10px] text-slate-400 block mt-0.5">{language === 'ar' ? 'بلوكة بناء' : 'Units'}</span>
                       </div>
                     )}
 
                     {/* Sand volume */}
-                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                       <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'الرمل الناعم/الخشن' : 'Plentiful Sand'}</span>
-                      <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.sandM3}</span>
+                      <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.sandM3}</span>
                       <span className="text-[10px] text-slate-400 block mt-0.5">م³ (متر مكعب)</span>
                     </div>
 
                     {/* Gravel volume (only if concrete elements) */}
                     {(calcType === 'slab' || calcType === 'column' || calcType === 'foundation') ? (
-                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'الركام / السن / الزلط' : 'Aggregate/Gravel'}</span>
-                        <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.gravelM3}</span>
+                        <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.gravelM3}</span>
                         <span className="text-[10px] text-slate-400 block mt-0.5">م³ (متر مكعب)</span>
                       </div>
                     ) : (
-                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                      <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'الماء التقريبي مخلوطاً' : 'Water Mix'}</span>
-                        <span className="text-lg md:text-xl font-black text-white font-mono">{calculatedResults.waterLiters}</span>
+                        <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.waterLiters}</span>
                         <span className="text-[10px] text-slate-400 block mt-0.5">{language === 'ar' ? 'لتر ماء خلط' : 'Liters'}</span>
                       </div>
                     )}
                   </div>
 
                   {/* Financial projections bill of materials cost */}
-                  <div className="bg-slate-950 rounded-2xl p-5 border border-slate-850 block space-y-4">
+                  <div className="bg-slate-950 rounded-2xl p-5 border border-slate-850 block space-y-4 print:bg-white print:border-slate-300 print:text-black">
                     <div className="flex justify-between items-center pb-2.5 border-b border-slate-900/40">
                       <div>
                         <span className="text-xs text-slate-400 font-bold block">{language === 'ar' ? 'إجمالي تكلفة المواد الإرشادية' : 'Estimated Total Materials cost'}</span>
@@ -703,7 +705,7 @@ export default function MaterialsCalculator() {
                 </div>
 
                 {/* Professional educational card block */}
-                <div className="bg-slate-900/40 border border-slate-850/80 p-6 rounded-2xl flex gap-4 items-start">
+                <div className="bg-slate-900/40 border border-slate-850/80 p-6 rounded-2xl flex gap-4 items-start print:hidden">
                   <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl flex-shrink-0">
                     <HelpCircle className="w-5 h-5" />
                   </div>
@@ -848,11 +850,11 @@ export default function MaterialsCalculator() {
                 </div>
 
                 {/* Grid checklist list */}
-                <div className="space-y-4 max-h-[800px] overflow-y-auto pr-1">
+                <div className="space-y-4 max-h-[800px] overflow-y-auto pr-1 print:max-h-none print:overflow-visible">
                   {filteredChecklist.map((item) => (
                     <div 
                       key={item.id}
-                      className="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl space-y-3 hover:border-slate-800 transition-colors"
+                      className="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl space-y-3 hover:border-slate-800 transition-colors print:bg-white print:border-slate-300 print:text-slate-900"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="space-y-1 text-right flex-1">
@@ -862,14 +864,14 @@ export default function MaterialsCalculator() {
                             {item.category === 'pouring' && (language === 'ar' ? 'صب الخرسانة الموقعي' : 'Casting Log')}
                             {item.category === 'masonry' && (language === 'ar' ? 'المباني والتشطيب الإنشائي' : 'Masonry & Plaster')}
                           </span>
-                          <h4 className="text-sm font-bold text-white pt-1">{item.item}</h4>
+                          <h4 className="text-sm font-bold text-white pt-1 print:text-black">{item.item}</h4>
                         </div>
 
                         {/* Status Button choices */}
                         <div className="flex items-center gap-1.5 flex-shrink-0">
                           <button
                             onClick={() => toggleItemStatus(item.id, 'pass')}
-                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'pass' ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-slate-950 border-slate-850 text-slate-500 hover:text-slate-300'}`}
+                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'pass' ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 print:border-emerald-600 print:text-emerald-700 print:flex' : 'bg-slate-950 border-slate-850 text-slate-500 hover:text-slate-300 print:hidden'}`}
                             title={language === 'ar' ? 'مطابق ومجاز' : 'Pass'}
                           >
                             <CheckCircle2 className="w-3.5 h-3.5" />
@@ -878,7 +880,7 @@ export default function MaterialsCalculator() {
                           
                           <button
                             onClick={() => toggleItemStatus(item.id, 'fail')}
-                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'fail' ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' : 'bg-slate-950 border-slate-850 text-slate-500 hover:text-slate-300'}`}
+                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'fail' ? 'bg-rose-500/10 border-rose-500/30 text-rose-400 print:border-rose-600 print:text-rose-700 print:flex' : 'bg-slate-950 border-slate-850 text-slate-500 hover:text-slate-300 print:hidden'}`}
                             title={language === 'ar' ? 'غير مطابق ويحتاج تصحيح' : 'Reject / Action Required'}
                           >
                             <XCircle className="w-3.5 h-3.5" />
@@ -887,7 +889,7 @@ export default function MaterialsCalculator() {
 
                           <button
                             onClick={() => toggleItemStatus(item.id, 'pending')}
-                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'pending' ? 'bg-slate-800 border-slate-700 text-slate-300' : 'bg-slate-950 border-slate-850 text-slate-500'}`}
+                            className={`p-1.5 rounded-lg border flex items-center gap-1 font-bold text-[10px] transition-all ${item.status === 'pending' ? 'bg-slate-800 border-slate-700 text-slate-300 print:border-amber-600 print:text-amber-700 print:flex' : 'bg-slate-950 border-slate-850 text-slate-500 print:hidden'}`}
                             title={language === 'ar' ? 'قيد المراجعة المعمقة' : 'Pending inspection'}
                           >
                             <Clock className="w-3.5 h-3.5" />
@@ -897,14 +899,14 @@ export default function MaterialsCalculator() {
                       </div>
 
                       {/* Observations note textbox & delete */}
-                      <div className="flex gap-2 items-center bg-slate-950 rounded-xl p-2 border border-slate-850">
+                      <div className="flex gap-2 items-center bg-slate-950 rounded-xl p-2 border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-[9px] text-slate-400 font-bold uppercase shrink-0 px-2">{language === 'ar' ? 'الملاحظات الفنية:' : 'Logs:'}</span>
                         <input 
                           type="text" 
                           value={item.notes}
                           onChange={(e) => updateObsText(item.id, e.target.value)}
                           placeholder={language === 'ar' ? 'ادخل تدوين فحص المهندس هنا...' : 'Enter inspector findings details...'}
-                          className="flex-1 bg-transparent text-xs text-slate-200 outline-none border-none placeholder-slate-600 focus:placeholder-slate-400"
+                          className="flex-1 bg-transparent text-xs text-slate-200 outline-none border-none placeholder-slate-600 focus:placeholder-slate-400 print:text-black"
                         />
                         <button
                           onClick={() => deleteCheckItem(item.id)}
@@ -950,7 +952,9 @@ export default function MaterialsCalculator() {
       </div>
       
       {/* Footer component */}
-      <Footer />
+      <div className="print:hidden">
+        <Footer />
+      </div>
     </main>
   );
 }

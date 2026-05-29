@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",
@@ -9,11 +10,37 @@
           "value": "max-age=31536000; includeSubDomains; preload"
         }
       ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|robots\\.txt|sitemap\\.xml|ads\\.txt|manifest\\.json|sw\\.js|offline\\.html|favicon\\.svg|assets/).*)",
+      "source": "/((?!sitemap\\.xml$|robots\\.txt$|favicon\\..*|assets/|images/|manifest\\.json$|sw\\.js$|offline\\.html$|ads\\.txt$).*)",
       "destination": "/index.html"
     }
   ]

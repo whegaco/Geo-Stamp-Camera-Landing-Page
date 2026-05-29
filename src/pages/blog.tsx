@@ -48,6 +48,16 @@ export default function Blog() {
   const { language } = useLanguage();
   const [articles, setArticles] = useState<ArticleItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ARTICLES_PER_PAGE = 6;
+
+  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  const paginatedArticles = articles.slice((currentPage - 1) * ARTICLES_PER_PAGE, currentPage * ARTICLES_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     // Map local static articles to match ArticleItem format
@@ -161,56 +171,93 @@ export default function Blog() {
             <Loader2 className="w-10 h-10 text-brand animate-spin" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <motion.article 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                key={article.id}
-                className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-colors group flex flex-col"
-              >
-                <Link to={`/blog/${article.slug}`} className="flex flex-col h-full">
-                  <BlurImage 
-                    src={article.image || 'https://images.unsplash.com/photo-1541888086903-ee4e10c71199?w=800&q=80'} 
-                    alt={language === 'ar' ? article.titleAr : article.titleEn} 
-                    containerClassName="h-48"
-                    imageClassName="group-hover:scale-105"
-                  />
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center gap-4 text-xs font-medium text-slate-400 mb-4">
-                      <div className="flex items-center gap-1.5 border border-slate-800 bg-slate-950/50 px-2.5 py-1 rounded-full">
-                        <Calendar className="w-3.5 h-3.5 text-brand" />
-                        <span>{article.date ? format(new Date(article.date), 'MMM d, yyyy') : format(new Date(article.createdAt), 'MMM d, yyyy')}</span>
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {paginatedArticles.map((article, index) => (
+                <motion.article 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  key={article.slug}
+                  className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-colors group flex flex-col"
+                >
+                  <Link to={`/blog/${article.slug}`} className="flex flex-col h-full">
+                    <BlurImage 
+                      src={article.image || 'https://images.unsplash.com/photo-1541888086903-ee4e10c71199?w=800&q=80'} 
+                      alt={language === 'ar' ? article.titleAr : article.titleEn} 
+                      containerClassName="h-48"
+                      imageClassName="group-hover:scale-105"
+                    />
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-4 text-xs font-medium text-slate-400 mb-4">
+                        <div className="flex items-center gap-1.5 border border-slate-800 bg-slate-950/50 px-2.5 py-1 rounded-full">
+                          <Calendar className="w-3.5 h-3.5 text-brand" />
+                          <span>{article.date ? format(new Date(article.date), 'MMM d, yyyy') : format(new Date(article.createdAt), 'MMM d, yyyy')}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 border border-slate-800 bg-slate-950/50 px-2.5 py-1 rounded-full">
+                          <Clock className="w-3.5 h-3.5 text-brand" />
+                          <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1.5 border border-slate-800 bg-slate-950/50 px-2.5 py-1 rounded-full">
-                        <Clock className="w-3.5 h-3.5 text-brand" />
-                        <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
-                      </div>
-                    </div>
-                    
-                    <h2 className="text-xl font-bold text-white mb-3 group-hover:text-brand transition-colors line-clamp-2">
-                      {language === 'ar' ? article.titleAr : article.titleEn}
-                    </h2>
-                    
-                    <p className="text-slate-400 text-sm mb-6 line-clamp-3">
-                      {language === 'ar' ? article.excerptAr : article.excerptEn}
-                    </p>
+                      
+                      <h2 className="text-xl font-bold text-white mb-3 group-hover:text-brand transition-colors line-clamp-2">
+                        {language === 'ar' ? article.titleAr : article.titleEn}
+                      </h2>
+                      
+                      <p className="text-slate-400 text-sm mb-6 line-clamp-3">
+                        {language === 'ar' ? article.excerptAr : article.excerptEn}
+                      </p>
 
-                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-800/50">
-                      <div className="flex items-center gap-2 text-sm text-slate-300 font-medium">
-                        <User className="w-4 h-4 text-slate-500" />
-                        <span>{language === 'ar' ? article.authorAr : article.authorEn}</span>
+                      <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div className="flex items-center gap-2 text-sm text-slate-300 font-medium">
+                          <User className="w-4 h-4 text-slate-500" />
+                          <span>{language === 'ar' ? article.authorAr : article.authorEn}</span>
+                        </div>
+                        <span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-brand group-hover:text-slate-950 transition-colors" aria-label="Read article">
+                          <ChevronRight className={`w-4 h-4 ${language === 'ar' ? 'rotate-180' : ''}`} />
+                        </span>
                       </div>
-                      <span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-brand group-hover:text-slate-950 transition-colors" aria-label="Read article">
-                        <ChevronRight className={`w-4 h-4 ${language === 'ar' ? 'rotate-180' : ''}`} />
-                      </span>
                     </div>
-                  </div>
-                </Link>
-              </motion.article>
-            ))}
-          </div>
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+            
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="mt-12 flex justify-center items-center gap-2">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand hover:bg-brand/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronRight className={`w-5 h-5 ${language === 'ar' ? '' : 'rotate-180'}`} />
+                </button>
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`w-10 h-10 rounded-full border flex items-center justify-center text-sm font-bold transition-colors ${
+                      currentPage === page
+                        ? 'border-brand bg-brand text-slate-950'
+                        : 'border-slate-800 text-slate-400 hover:border-brand hover:text-white'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+                
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand hover:bg-brand/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronRight className={`w-5 h-5 ${language === 'ar' ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+            )}
+          </>
         )}
       </main>
 

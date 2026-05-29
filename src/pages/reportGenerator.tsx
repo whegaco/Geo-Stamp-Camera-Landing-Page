@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -776,38 +776,38 @@ export default function ReportGenerator() {
                   </div>
 
                   <div className="border border-slate-250 rounded-xl overflow-hidden shadow-sm">
-                    <table className="w-full text-xs text-slate-800">
+                    <table className="w-full text-xs text-slate-800 border-collapse print:text-sm">
                       <thead>
-                        <tr className="bg-slate-100 text-slate-500 font-bold text-left border-b border-slate-200">
-                          <th className="p-3 w-8 text-center">#</th>
-                          <th className="p-3 text-right">{language === 'ar' ? 'بند فحص المعاينة والمطابقة' : 'Inspection benchmark benchmark'}</th>
-                          <th className="p-3 w-28 text-center">{language === 'ar' ? 'حالة التقييم' : 'Evaluation status'}</th>
-                          <th className="p-3 text-right">{language === 'ar' ? 'المعاينة والحلول الفنية' : 'Field observations & notes'}</th>
+                        <tr className="bg-slate-100 text-slate-500 font-bold text-left border-b border-slate-200 print:bg-slate-200">
+                          <th className="p-3 print:py-5 w-8 text-center border-r border-slate-200 print:border-slate-300">#</th>
+                          <th className="p-3 print:py-5 text-right border-r border-slate-200 print:border-slate-300">{language === 'ar' ? 'بند فحص المعاينة والمطابقة' : 'Inspection benchmark benchmark'}</th>
+                          <th className="p-3 print:py-5 w-28 text-center border-r border-slate-200 print:border-slate-300">{language === 'ar' ? 'حالة التقييم' : 'Evaluation status'}</th>
+                          <th className="p-3 print:py-5 text-right">{language === 'ar' ? 'المعاينة والحلول الفنية' : 'Field observations & notes'}</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-150">
                         {checklist.map((item, idx) => (
-                          <tr key={item.id} className="hover:bg-slate-50/50 transition-colors">
-                            <td className="p-3 text-center text-slate-400 font-bold">{idx + 1}</td>
-                            <td className="p-3 font-bold text-slate-900 text-right">{item.item}</td>
-                            <td className="p-3 text-center">
+                          <tr key={item.id} className="hover:bg-slate-50/50 transition-colors print:odd:bg-white print:even:bg-slate-50 print:break-inside-avoid">
+                            <td className="p-3 print:py-4 text-center text-slate-400 font-bold border-r border-slate-200 print:border-slate-300 print:text-slate-500">{idx + 1}</td>
+                            <td className="p-3 print:py-4 font-bold text-slate-900 text-right border-r border-slate-200 print:border-slate-300 print:text-black">{item.item}</td>
+                            <td className="p-3 print:py-4 text-center border-r border-slate-200 print:border-slate-300">
                               {item.status === 'pass' && (
-                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">
+                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 print:border-emerald-500 print:text-emerald-800">
                                   ✓  {language === 'ar' ? 'مطابق' : 'PASS'}
                                 </span>
                               )}
                               {item.status === 'fail' && (
-                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-rose-50 text-rose-700 font-bold border border-rose-200">
+                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-rose-50 text-rose-700 font-bold border border-rose-200 print:border-rose-500 print:text-rose-800">
                                   ✗  {language === 'ar' ? 'غير مطابق' : 'FAIL'}
                                 </span>
                               )}
                               {item.status === 'na' && (
-                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-slate-50 text-slate-500 font-bold border border-slate-200">
+                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-slate-50 text-slate-500 font-bold border border-slate-200 print:text-slate-700">
                                   - N/A
                                 </span>
                               )}
                             </td>
-                            <td className="p-3 text-slate-600 text-right italic font-medium">{item.notes || '-'}</td>
+                            <td className="p-3 print:py-4 text-slate-600 text-right italic font-medium print:text-black">{item.notes || '-'}</td>
                           </tr>
                         ))}
                       </tbody>

@@ -9,17 +9,16 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
+        'react': path.resolve(__dirname, 'node_modules/react'),
+        'react-dom': path.resolve(__dirname, 'node_modules/react-dom')
       },
+      dedupe: ['react', 'react-dom']
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom', 'motion/react', 'react-helmet-async']
     },
     build: {
       rollupOptions: {
-        output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-            'vendor-ui': ['lucide-react'],
-            'vendor-motion': ['motion/react']
-          }
-        }
       }
     },
     server: {

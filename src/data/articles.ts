@@ -1,5 +1,80 @@
 export const articles = [
   {
+    id: 10,
+    slug: 'project-diary-construction-app',
+    titleEn: 'Project Diary Construction App: Revolutionizing Site Daily Reports',
+    titleAr: 'تطبيق Project Diary Construction: دليلك الشامل لإدارة يوميات الموقع بذكاء',
+    excerptEn: 'Stop managing your construction site with scattered notebooks and WhatsApp messages. Discover how the Project Diary Construction app organizes everything.',
+    excerptAr: 'تخلص من فوضى الدفاتر ورسائل الواتساب العشوائية! اكتشف كيف ينظم تطبيق Project Diary Construction مهام موقعك من هاتفك.',
+    contentEn: `Are you still managing site logs with disorganized notebooks and scattered WhatsApp messages? 😅
+
+A message here... a photo there... a lost material request... and a crucial piece of information buried in a chat group!
+
+Now, you can organize your entire construction site workflow directly from your smartphone using the **[Project Diary Construction](https://play.google.com/store/apps/details?id=com.diary.project)** app! 👷‍♂️📱
+
+A deeply practical application specifically engineered for site engineers, general contractors, execution supervisors, and project managers to meticulously document everything happening on-site in a structured, accessible format.
+
+### **What can you accomplish with the app?**
+
+- ✅ **Daily Manpower Tracking:** Accurately record the daily number of workers segmented by specialization (Engineers, Foremen, Carpenters, Steel Fixers, Laborers, Technicians, etc.).
+- ✅ **Equipment Logistics:** Keep a precise log of active heavy equipment on-site (Excavators, Cranes, Mixers, Concrete Pumps, operating machinery).
+- ✅ **Visual Progress Documentation:** Snap and attach photos directly from the field, highlighting structural progress, quality remarks, and tracking real-time daily achievements.
+- ✅ **Obstacles & Incidents Logging:** Systematically record project delays and constraints—such as delayed materials, labor shortages, design clashes, machinery breakdowns, or underperforming sub-contractors that directly affect timeline execution.
+- ✅ **Material Procurement Requests (MRs):** Log site material needs hierarchically instead of letting them drown in endless WhatsApp threads.
+- ✅ **Deduction Memos & Notices:** Easily issue structured deductions or notices to sub-contractors, laborers, or suppliers due to delays, violations, damages, absence, or poor workmanship.
+- ✅ **Neat WhatsApp Summaries:** The app automatically compiles a neat, highly professional summary text ready to be dispatched to your company's executive groups. It highlights your daily milestones effectively without generating spam.
+- ✅ **Professional PDF Report Generation:** Instantly compile the day's logs into a formal PDF report. You can seamlessly add your contracting company’s logo, giving the document an official, enterprise-grade look for instant submission to stakeholders.
+- ✅ **CSV Financial Data Export:** Output your logs directly to CSV if you prefer tracking statistics, payroll, and macro-analysis on MS Excel or Google Sheets.
+- ✅ **Total Customization Framework:** Fully adapt the app to your unique project nature. Add custom labor types, customized equipment, bespoke work zones, tailored currencies, and variable setups to mirror your exact workflow requirements.
+- ✅ **Offline First:** Highly reliable for remote job sites or deep basements where cellular reception is weak or non-existent.
+
+Instead of drifting in loose paper notes, vanishing photos, and material requests that sink in chat rooms... consolidate your whole project diary onto one robust digital platform, and let your daily report reflect the true professionalism of your engineering firm.
+
+### **Who is this app for?**
+Site Engineers, Independent Contractors, Execution Supervisors, Project Managers, Site Foremen, or absolutely anyone overseeing daily operational progress in a construction environment.
+
+🔥 **Try it now directly from Google Play:**  
+📱 **[Download Project Diary Construction here](https://play.google.com/store/apps/details?id=com.diary.project)**`,
+    contentAr: `هل ما زلت تدير يوميات موقعك الإنشائي باستخدام النوتة الورقية ورسائل الواتساب العشوائية؟ 😅
+
+رسالة هنا… صورة هناك… طلب توريد مواد ضائع… ومعلومة حيوية مدفونة في زحام الجروبات!
+
+الآن، وبكل سهولة الاحتراف، يمكنك تنظيم وتوثيق عمل الموقع بأكمله مباشرة من هاتفك المحمول عبر تطبيق **[Project Diary Construction](https://play.google.com/store/apps/details?id=com.diary.project)**! 👷‍♂️📱
+
+هذا التطبيق العملي صُمم خصيصاً للمهندسين الميدانيين، المقاولين، مشرفي التنفيذ، ومديري المشاريع؛ ليكون مساعدهم الرقمي الأول في توثيق كل شاردة وواردة في الموقع بشكل مرتب، حديث، وسهل الوصول والإدارة.
+
+### **ما هي إمكانيات التطبيق الجبارة لموقعك؟**
+
+- ✅ **تسجيل أعداد العمالة اليومية (Manpower):** رصد وتوثيق العمالة حسب التخصص والمهنة بدقة (مهندس، فورمان، نجار، حداد، عامل عادي، فني تمديدات… إلخ).
+- ✅ **جرد حركة المعدات الثقيلة:** متابعة دقيقة للمعدات المشغلة في الموقع (حفار، ونش برجي، خلاطة خرسانة، مضخة، ومعدات التشغيل المتنوعة).
+- ✅ **التوثيق المرئي لتقدم الأعمال:** إرفاق الصور من الموقع، تحديد التدخلات المهنية، كتابة وتدوين ملاحظات التنفيذ، ومتابعة نسبة الإنجاز اليومي بشكل دوري.
+- ✅ **تدوين المعوقات والتحديات الإنشائية:** سجل رسمي لأسباب التأخير كـ نقص المواد الموردة، غياب العمالة، مشاكل تعارض المخططات، أعطال الآليات، تخلف المقاولين، أو أي عائق يؤثر سلباً على سير التنفيذ.
+- ✅ **إصدار طلبات شراء المواد (Material Requests):** أرشفة وتنظيم احتياجات الموقع المتجددة بصورة رسمية بدلاً من ضياعها في رسائل الدردشة المؤقتة.
+- ✅ **تحرير مذكرات الخصم والإنذارات:** إصدار التنبيهات والخصومات على مقاولي الباطن، العمال، أو الموردين المعتمدين نتيجة أي تأخير أو مخالفة أو تلف بمواد البناء أو غياب غير مبرر.
+- ✅ **تقارير واتساب فورية ومرتبة:** ميزة سحرية تتيح للتطبيق إعداد رسالة موجزة ومنظمة جاهزة للنسخ أو الإرسال لجروبات العمل الإدارية؛ لتوضيح ملخص شغلك اليومي بطريقة احترافية تعكس كفاءتك الهندسية بديلًا عن الرسائل المبعثرة.
+- ✅ **إنشاء تقارير PDF رسمية:** استخرج ملفات يومية شاملة منسقة بعناية، مع إمكانية إضافة "شعار/لوجو" شركتك أو مقاولتك ليكون التقرير قابلاً للاعتماد فور إرساله للمالك أو الاستشاري.
+- ✅ **تصدير قواعد البيانات كملف CSV:** لو أردت تحليل البيانات بشكل أوسع، يتيح لك التطبيق استخراجها للعمل وتصفحها عبر برنامج الإكسيل Excel.
+- ✅ **تخصيص حر 100% لمشروعك:** يعطيك التطبيق حرية مطلقة في إضافة أنواع مخصصة للعمالة، مناطق عمل مختلفة (Zones)، أنواع ملاحظات ومخالفات متنوعة، وتحديد العملة المحلية التي تناسب العقود الخاصة بك.
+- ✅ **استقلالية تامة عن الإنترنت (Offline Mode):** مناسب ومثالي جداً لمواقع البناء المعزولة أو المشاريع التي يكون الاستقبال الخلوي فيها ضعيفاً.
+
+فلتودع فوراً الورق المتناثر، الصور التي تمتزج بالعناصر الشخصية، ومستخلصات المواد التي تغرق في الشات... اجعل يوميات مشروعك مدمجة وكاملة في مكان رقمي واحد، واجعل تقريرك اليومي مرآة لمهنيتك ودقتك كمهندس محترف.
+
+### **من هو المستفيد الأكبر من التطبيق؟**
+مهندس الموقع المدني أو المعماري، المقاول المعتمد، مشرف التنفيذ العام، مدير المشروع، وأي شخص مسؤول بشكل مباشر وحيوي عن مراقبة وضبط التقدم اليومي في المواقع الإنشائية.
+
+🔥 **قم بتحميله وتجربته الآن مجاناً لنظام أندرويد**  
+📱 **[رابط التحميل عبر Google Play](https://play.google.com/store/apps/details?id=com.diary.project)**`,
+    dateEn: 'June 15, 2026',
+    dateAr: '١٥ يونيو ٢٠٢٦',
+    authorEn: 'Editorial Team',
+    authorAr: 'فريق التحرير',
+    readTimeEn: '5 min read',
+    readTimeAr: '٥ دقائق قراءة',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop',
+    keywordsEn: 'project diary, construction app, daily site report, mobile tracking, field engineering, resource tracking, civil engineering software',
+    keywordsAr: 'يوميات المشروع, تطبيق مقاولات, تقرير يومي للموقع, تتبع ميداني, برامج هندسة مدنية, تطبيق مهندسين'
+  },
+  {
     id: 8,
     slug: 'benefits-of-cloud-storage-for-construction-photos',
     titleEn: 'Benefits of Cloud Storage for Construction Site Photos',

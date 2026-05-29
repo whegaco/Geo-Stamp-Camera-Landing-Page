@@ -178,7 +178,7 @@ export default function AgentStamper() {
       let rx = 0;
       let ry = 0;
       let rw = canvas.width;
-      let rh = 0;
+      let rh;
       let isBox = false;
 
       if (stampPosition === 'bottom-bar') {
@@ -230,8 +230,8 @@ export default function AgentStamper() {
 
       // Draw customized Logo Stamp
       const hasLogo = (selectedLogoType !== 'none');
-      let lx = 0;
-      let ly = 0;
+      let lx;
+      let ly;
 
       if (hasLogo) {
         if (isBox) {
@@ -423,9 +423,7 @@ export default function AgentStamper() {
         <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" />
         
         {/* Render Structured LD-JSON */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaJsonLd)}
-        </script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }} />
       </Helmet>
       
       <Navbar />
