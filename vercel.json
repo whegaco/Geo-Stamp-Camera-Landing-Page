@@ -1,6 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "{dist/**,firebase-applet-config.json}"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
@@ -40,12 +45,8 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/((?!assets/|images/|manifest\\.json$|favicon\\..*|sw\\.js$|offline\\.html$|ads\\.txt$|sitemap\\.xml$|robots\\.txt$).*)",
+      "destination": "/api"
     }
   ]
 }

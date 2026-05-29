@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createServer as createViteServer } from 'vite';
+// Vite is imported dynamically below in development mode
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 import { initializeApp } from 'firebase/app';
@@ -307,6 +307,7 @@ Format in Markdown. Include a catchy title, introduction, main body paragraphs w
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
