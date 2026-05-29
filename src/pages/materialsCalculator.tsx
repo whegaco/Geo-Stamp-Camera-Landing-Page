@@ -40,7 +40,7 @@ export default function MaterialsCalculator() {
   const [activeTab, setActiveTab] = useState<'calculator' | 'checklist'>('calculator');
 
   // --- Calculator States ---
-  const [calcType, setCalcType] = useState<'slab' | 'column' | 'foundation' | 'brick' | 'plaster'>('slab');
+  const [calcType, setCalcType] = useState<'slab' | 'column' | 'foundation' | 'beam' | 'brick' | 'plaster'>('slab');
   
   // Slab & Foundation inputs
   const [length, setLength] = useState<number>(10);
@@ -52,6 +52,11 @@ export default function MaterialsCalculator() {
   const [colWidth, setColWidth] = useState<number>(0.3); // meters
   const [colDepth, setColDepth] = useState<number>(0.6); // meters
   const [colHeight, setColHeight] = useState<number>(3.2); // meters
+
+  // Beams Inputs
+  const [beamLength, setBeamLength] = useState<number>(50); // meters (total length)
+  const [beamWidth, setBeamWidth] = useState<number>(0.2); // meters
+  const [beamDepth, setBeamDepth] = useState<number>(0.6); // meters
 
   // Brick Wall Inputs
   const [wallArea, setWallArea] = useState<number>(150); // m²
@@ -74,6 +79,7 @@ export default function MaterialsCalculator() {
   const [sandPrice, setSandPrice] = useState<number>(85); // per m³
   const [gravelPrice, setGravelPrice] = useState<number>(120); // per m³
   const [brickPrice, setBrickPrice] = useState<number>(1.2); // per brick
+  const [laborPricePerUnit, setLaborPricePerUnit] = useState<number>(150); // Labor execution per m³, m², or unit
   const [showConfig, setShowConfig] = useState<boolean>(false);
 
   // --- Checklist States ---
@@ -136,6 +142,14 @@ export default function MaterialsCalculator() {
       const colSteelRatio = 120;
       steelNeeded = ((volume * colSteelRatio) / 1000) * factor;
       waterNeeded = volume * 180 * factor;
+    } else if (calcType === 'beam') {
+      volume = beamLength * beamWidth * beamDepth;
+      cementNeeded = volume * cementRatioAdj * factor;
+      sandNeeded = volume * 0.4 * factor;
+      gravelNeeded = volume * 0.8 * factor;
+      const beamSteelRatio = 100;
+      steelNeeded = ((volume * beamSteelRatio) / 1000) * factor;
+      waterNeeded = volume * 175 * factor;
     } else if (calcType === 'brick') {
       // Calculate single brick volume with mortar (approx adding 1cm to all sides)
       const bL = (brickLength + 1) / 100; // to meters
@@ -172,7 +186,19 @@ export default function MaterialsCalculator() {
     const costSand = sandNeeded * sandPrice;
     const costGravel = gravelNeeded * gravelPrice;
     const costBricks = bricksCount * brickPrice;
-    const totalCost = costCement + costSteel + costSand + costGravel + costBricks;
+
+    // Labor cost calculation based on unit type
+    let costLabor = 0;
+    if (calcType === 'slab' || calcType === 'column' || calcType === 'foundation' || calcType === 'beam') {
+      costLabor = volume * laborPricePerUnit; // labor per cubic meter
+    } else if (calcType === 'brick') {
+      costLabor = wallArea * laborPricePerUnit; // labor per square meter
+    } else if (calcType === 'plaster') {
+      costLabor = plasterArea * laborPricePerUnit; // labor per square meter
+    }
+
+    const totalMaterialsCost = costCement + costSteel + costSand + costGravel + costBricks;
+    const totalCost = totalMaterialsCost + costLabor;
 
     return {
       volume: parseFloat(volume.toFixed(2)),
@@ -188,13 +214,16 @@ export default function MaterialsCalculator() {
         sand: Math.round(costSand),
         gravel: Math.round(costGravel),
         bricks: Math.round(costBricks),
+        labor: Math.round(costLabor),
+        materialsTotal: Math.round(totalMaterialsCost),
         total: Math.round(totalCost)
       }
     };
   }, [
     calcType, length, width, thickness, numColumns, colWidth, colDepth, colHeight,
+    beamLength, beamWidth, beamDepth,
     wallArea, brickLength, brickWidth, brickHeight, plasterArea, plasterThickness,
-    cementRatio, steelRatio, safetyFactor, cementPrice, steelPrice, sandPrice, gravelPrice, brickPrice
+    cementRatio, steelRatio, safetyFactor, cementPrice, steelPrice, sandPrice, gravelPrice, brickPrice, laborPricePerUnit
   ]);
 
   // --- Checklist Calculations ---
@@ -312,11 +341,12 @@ export default function MaterialsCalculator() {
                     {language === 'ar' ? '١. نوع الهيكل ومقاطع البناء' : '1. Structural Element Design Type'}
                   </h3>
 
-                  <div className="grid grid-cols-2 xs:grid-cols-3 lg:grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 xs:grid-cols-3 lg:grid-cols-3 gap-2">
                     {[
                       { id: 'slab', label: language === 'ar' ? '🏠 بلاطة خرسانية / سقف' : '🏠 Concrete Slab' },
                       { id: 'column', label: language === 'ar' ? '🏛️ أعمدة خرسانية' : '🏛️ Foundation Columns' },
                       { id: 'foundation', label: language === 'ar' ? '🪵 قواعد خرسانية' : '🪵 Footings / Base' },
+                      { id: 'beam', label: language === 'ar' ? '🌉 جسور وميد خرسانية' : '🌉 Beams & Girders' },
                       { id: 'brick', label: language === 'ar' ? '🧱 جدران طوب وبلوك' : '🧱 Brick Wall Masonry' },
                       { id: 'plaster', label: language === 'ar' ? '📌 أعمال اللياسة / محارة' : '📌 Exterior Plastering' }
                     ].map((type) => (
@@ -414,6 +444,36 @@ export default function MaterialsCalculator() {
                             type="number" step="0.1" value={colHeight} onChange={(e) => setColHeight(parseFloat(e.target.value) || 0)}
                             className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm font-bold text-white focus:border-brand outline-none"
                           />
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Beams Specific inputs */}
+                    {calcType === 'beam' && (
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-xs text-slate-400 font-bold mb-1">{language === 'ar' ? 'إجمالي أطوال الجسور (متر الطولي)' : 'Total Beams Length (m)'}</label>
+                          <input 
+                            type="number" step="0.5" value={beamLength} onChange={(e) => setBeamLength(parseFloat(e.target.value) || 0)}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm font-bold text-white focus:border-brand outline-none"
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-xs text-slate-400 font-bold mb-1">{language === 'ar' ? 'عرض الجسر (م)' : 'Beam Width (m)'}</label>
+                            <input 
+                              type="number" step="0.05" value={beamWidth} onChange={(e) => setBeamWidth(parseFloat(e.target.value) || 0)}
+                              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm font-bold text-white focus:border-brand outline-none"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-slate-400 font-bold mb-1">{language === 'ar' ? 'سقوط/عمق الجسر (م)' : 'Beam Depth (m)'}</label>
+                            <input 
+                              type="number" step="0.05" value={beamDepth} onChange={(e) => setBeamDepth(parseFloat(e.target.value) || 0)}
+                              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm font-bold text-white focus:border-brand outline-none"
+                            />
+                          </div>
                         </div>
                       </div>
                     )}
@@ -542,7 +602,7 @@ export default function MaterialsCalculator() {
 
                           {/* Unit price overrides */}
                           <p className="font-extrabold text-slate-400 text-[10px] uppercase tracking-wider">{language === 'ar' ? 'تعديل أسعار المواد لتفصيل التكلفة' : 'Adjust active standard price indicators'}</p>
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
                             <div>
                               <label className="block text-[9px] text-slate-500 font-bold mb-1">{language === 'ar' ? 'كيس إسمنت' : 'Cement bag'}</label>
                               <input 
@@ -561,6 +621,13 @@ export default function MaterialsCalculator() {
                               <label className="block text-[9px] text-slate-500 font-bold mb-1">{language === 'ar' ? 'البلوك المفرد' : 'Single brick'}</label>
                               <input 
                                 type="number" value={brickPrice} onChange={(e) => setBrickPrice(parseFloat(e.target.value) || 0)}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-white"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[9px] text-slate-500 font-bold mb-1">{language === 'ar' ? 'أجرة المصنعية' : 'Labor Rate'}</label>
+                              <input 
+                                type="number" value={laborPricePerUnit} onChange={(e) => setLaborPricePerUnit(parseFloat(e.target.value) || 0)}
                                 className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-white"
                               />
                             </div>
@@ -630,7 +697,7 @@ export default function MaterialsCalculator() {
                     </div>
 
                     {/* Gravel volume (only if concrete elements) */}
-                    {(calcType === 'slab' || calcType === 'column' || calcType === 'foundation') ? (
+                    {(calcType === 'slab' || calcType === 'column' || calcType === 'foundation' || calcType === 'beam') ? (
                       <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 print:bg-slate-50 print:border-slate-300">
                         <span className="text-slate-500 text-[10px] font-bold block mb-1 uppercase tracking-tight">{language === 'ar' ? 'الركام / السن / الزلط' : 'Aggregate/Gravel'}</span>
                         <span className="text-lg md:text-xl font-black text-white font-mono print:text-black">{calculatedResults.gravelM3}</span>
@@ -647,40 +714,47 @@ export default function MaterialsCalculator() {
 
                   {/* Financial projections bill of materials cost */}
                   <div className="bg-slate-950 rounded-2xl p-5 border border-slate-850 block space-y-4 print:bg-white print:border-slate-300 print:text-black">
-                    <div className="flex justify-between items-center pb-2.5 border-b border-slate-900/40">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 border-b border-slate-900/40 gap-4">
                       <div>
-                        <span className="text-xs text-slate-400 font-bold block">{language === 'ar' ? 'إجمالي تكلفة المواد الإرشادية' : 'Estimated Total Materials cost'}</span>
+                        <span className="text-xs text-slate-400 font-bold block mb-1 uppercase tracking-wider">{language === 'ar' ? 'إجمالي الميزانية التقديرية (مواد + مصنعية)' : 'Estimated Total Budget (Materials + Labor)'}</span>
                         <p className="text-[10px] text-slate-500">{language === 'ar' ? '*الأسعار خاضعة للتعديل من لوحة الإعدادات' : '*Calculated on customized local rate indices'}</p>
                       </div>
-                      <span className="text-2xl font-black text-emerald-400 font-mono">
-                        {calculatedResults.costBreakdown.total.toLocaleString()} {language === 'ar' ? 'ريال / جنيه' : 'Unit value'}
-                      </span>
+                      <div className="text-right">
+                        <span className="text-2xl md:text-3xl font-black text-emerald-400 font-mono">
+                          {calculatedResults.costBreakdown.total.toLocaleString()} <span className="text-sm text-slate-300">{language === 'ar' ? 'ج.م / ريال' : 'EGP/SAR'}</span>
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                      <div>
-                        <span className="text-slate-500">{language === 'ar' ? '🧬 الإسمنت:' : '🧬 Cement:'}</span>
-                        <span className="block font-bold mt-0.5 text-slate-300 font-mono">{calculatedResults.costBreakdown.cement.toLocaleString()}</span>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs mb-4">
+                      <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-850">
+                        <span className="text-slate-500 text-[10px] block mb-0.5">{language === 'ar' ? '🧬 تكلفة الإسمنت:' : '🧬 Cement Cost:'}</span>
+                        <span className="font-bold text-slate-300 font-mono">{calculatedResults.costBreakdown.cement.toLocaleString()}</span>
                       </div>
+                      
                       {calcType !== 'brick' && calcType !== 'plaster' && (
-                        <div>
-                          <span className="text-slate-500">{language === 'ar' ? '⚓ الحديد:' : '⚓ Steel:'}</span>
-                          <span className="block font-bold mt-0.5 text-slate-300 font-mono">{calculatedResults.costBreakdown.steel.toLocaleString()}</span>
+                        <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-850">
+                          <span className="text-slate-500 text-[10px] block mb-0.5">{language === 'ar' ? '⚓ تكلفة الحديد:' : '⚓ Steel Cost:'}</span>
+                          <span className="font-bold text-slate-300 font-mono">{calculatedResults.costBreakdown.steel.toLocaleString()}</span>
                         </div>
                       )}
+                      
                       {calcType === 'brick' && (
-                        <div>
-                          <span className="text-slate-500">{language === 'ar' ? '🧱 الطوب:' : '🧱 Bricks:'}</span>
-                          <span className="block font-bold mt-0.5 text-slate-300 font-mono">{calculatedResults.costBreakdown.bricks.toLocaleString()}</span>
+                        <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-850">
+                          <span className="text-slate-500 text-[10px] block mb-0.5">{language === 'ar' ? '🧱 تكلفة الطوب:' : '🧱 Bricks Cost:'}</span>
+                          <span className="font-bold text-slate-300 font-mono">{calculatedResults.costBreakdown.bricks.toLocaleString()}</span>
                         </div>
                       )}
-                      <div>
-                        <span className="text-slate-500">{language === 'ar' ? '⏳ الرمل والبحص:' : '⏳ Aggregate/Sand:'}</span>
-                        <span className="block font-bold mt-0.5 text-slate-300 font-mono">{(calculatedResults.costBreakdown.sand + calculatedResults.costBreakdown.gravel).toLocaleString()}</span>
+                      
+                      <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-850">
+                        <span className="text-slate-500 text-[10px] block mb-0.5">{language === 'ar' ? '⏳ رمل وركام:' : '⏳ Aggregates:'}</span>
+                        <span className="font-bold text-slate-300 font-mono">{(calculatedResults.costBreakdown.sand + calculatedResults.costBreakdown.gravel).toLocaleString()}</span>
                       </div>
-                      <div>
-                        <span className="text-slate-500">{language === 'ar' ? '🧪 فاقد وهدر:' : '🧪 Safety factor:'}</span>
-                        <span className="block font-bold mt-0.5 text-amber-400 font-mono">{safetyFactor}% Included</span>
+
+                      <div className="bg-slate-900 p-2.5 rounded-xl border border-brand/20 relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-brand/5 group-hover:bg-brand/10 transition-colors" />
+                        <span className="text-brand text-[10px] block mb-0.5 relative z-10 font-bold">{language === 'ar' ? '👷 تكلفة المصنعية:' : '👷 Labor Cost:'}</span>
+                        <span className="font-bold text-white font-mono relative z-10">{calculatedResults.costBreakdown.labor.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
